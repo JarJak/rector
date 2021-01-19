@@ -26,7 +26,7 @@ final class StringsAssertNakedRector extends AbstractRector
      */
     private $parser;
 
-    public function __construct(Parser $parser)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, Parser $parser)
     {
         $this->parser = $parser;
     }

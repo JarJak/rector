@@ -26,8 +26,10 @@ final class MoveInterfacesToContractNamespaceDirectoryRector extends AbstractRec
      */
     private $netteControlFactoryInterfaceAnalyzer;
 
-    public function __construct(NetteControlFactoryInterfaceAnalyzer $netteControlFactoryInterfaceAnalyzer)
-    {
+    public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
+        NetteControlFactoryInterfaceAnalyzer $netteControlFactoryInterfaceAnalyzer
+    ) {
         $this->netteControlFactoryInterfaceAnalyzer = $netteControlFactoryInterfaceAnalyzer;
     }
 

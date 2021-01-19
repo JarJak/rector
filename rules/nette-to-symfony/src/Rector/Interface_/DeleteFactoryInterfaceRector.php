@@ -22,8 +22,10 @@ final class DeleteFactoryInterfaceRector extends AbstractRector
      */
     private $netteControlFactoryInterfaceAnalyzer;
 
-    public function __construct(NetteControlFactoryInterfaceAnalyzer $netteControlFactoryInterfaceAnalyzer)
-    {
+    public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
+        NetteControlFactoryInterfaceAnalyzer $netteControlFactoryInterfaceAnalyzer
+    ) {
         $this->netteControlFactoryInterfaceAnalyzer = $netteControlFactoryInterfaceAnalyzer;
     }
 

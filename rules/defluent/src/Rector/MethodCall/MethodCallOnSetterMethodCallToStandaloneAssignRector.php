@@ -32,6 +32,7 @@ final class MethodCallOnSetterMethodCallToStandaloneAssignRector extends Abstrac
     private $variableFromNewFactory;
 
     public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
         NewFluentChainMethodCallNodeAnalyzer $newFluentChainMethodCallNodeAnalyzer,
         VariableFromNewFactory $variableFromNewFactory
     ) {

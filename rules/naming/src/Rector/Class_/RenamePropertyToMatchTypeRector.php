@@ -55,6 +55,7 @@ final class RenamePropertyToMatchTypeRector extends AbstractRector
     private $propertyFetchRenamer;
 
     public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
         MatchTypePropertyRenamer $matchTypePropertyRenamer,
         PropertyRenameFactory $propertyRenameFactory,
         MatchPropertyTypeExpectedNameResolver $matchPropertyTypeExpectedNameResolver,

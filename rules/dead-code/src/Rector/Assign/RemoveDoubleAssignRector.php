@@ -31,7 +31,7 @@ final class RemoveDoubleAssignRector extends AbstractRector
      */
     private $scopeNestingComparator;
 
-    public function __construct(ScopeNestingComparator $scopeNestingComparator)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, ScopeNestingComparator $scopeNestingComparator)
     {
         $this->scopeNestingComparator = $scopeNestingComparator;
     }

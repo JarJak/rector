@@ -40,6 +40,7 @@ final class AddUuidMirrorForRelationPropertyRector extends AbstractRector
     private $uuidMigrationDataCollector;
 
     public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
         PhpDocTagNodeFactory $phpDocTagNodeFactory,
         UuidMigrationDataCollector $uuidMigrationDataCollector
     ) {
@@ -186,6 +187,11 @@ CODE_SAMPLE
         }
         return (bool) $oneToOneTagValueNode->getMappedBy();
     }
+
+    /**
+     * Creates duplicated property, that has "*uuidSuffix"
+     * and nullable join column, so we cna complete them manually
+     */
 
     /**
      * Creates duplicated property, that has "*uuidSuffix"

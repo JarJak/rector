@@ -29,7 +29,7 @@ final class AddParentBootToModelClassMethodRector extends AbstractRector
      */
     private $staticCallAnalyzer;
 
-    public function __construct(StaticCallAnalyzer $staticCallAnalyzer)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, StaticCallAnalyzer $staticCallAnalyzer)
     {
         $this->staticCallAnalyzer = $staticCallAnalyzer;
     }

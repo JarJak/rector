@@ -38,6 +38,7 @@ final class RemoveOverriddenValuesRector extends AbstractRector
     private $variableUseFinder;
 
     public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
         ContextAnalyzer $contextAnalyzer,
         NodeByTypeAndPositionCollector $nodeByTypeAndPositionCollector,
         VariableUseFinder $variableUseFinder

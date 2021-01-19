@@ -37,8 +37,10 @@ final class SimplifyRegexPatternRector extends AbstractRector
      */
     private $regexPatternArgumentManipulator;
 
-    public function __construct(RegexPatternArgumentManipulator $regexPatternArgumentManipulator)
-    {
+    public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
+        RegexPatternArgumentManipulator $regexPatternArgumentManipulator
+    ) {
         $this->regexPatternArgumentManipulator = $regexPatternArgumentManipulator;
     }
 

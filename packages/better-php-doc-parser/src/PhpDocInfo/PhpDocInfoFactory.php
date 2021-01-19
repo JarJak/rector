@@ -52,13 +52,19 @@ final class PhpDocInfoFactory
      */
     private $phpDocRemover;
 
+    /**
+     * @var \Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory
+     */
+    private $phpDocInfoFactory;
+
     public function __construct(
         AttributeAwareNodeFactory $attributeAwareNodeFactory,
         CurrentNodeProvider $currentNodeProvider,
         Lexer $lexer,
         BetterPhpDocParser $betterPhpDocParser,
         PhpDocRemover $phpDocRemover,
-        StaticTypeMapper $staticTypeMapper
+        StaticTypeMapper $staticTypeMapper,
+        self $phpDocInfoFactory
     ) {
         $this->betterPhpDocParser = $betterPhpDocParser;
         $this->lexer = $lexer;
@@ -66,12 +72,13 @@ final class PhpDocInfoFactory
         $this->staticTypeMapper = $staticTypeMapper;
         $this->attributeAwareNodeFactory = $attributeAwareNodeFactory;
         $this->phpDocRemover = $phpDocRemover;
+        $this->phpDocInfoFactory = $phpDocInfoFactory;
     }
 
     public function createFromNodeOrEmpty(Node $node): PhpDocInfo
     {
         // already added
-        $phpDocInfo = $node->getAttribute(AttributeKey::PHP_DOC_INFO);
+        $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($node);
         if ($phpDocInfo instanceof PhpDocInfo) {
             return $phpDocInfo;
         }

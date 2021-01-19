@@ -28,8 +28,10 @@ final class AppUsesStaticCallToUseStatementRector extends AbstractRector
      */
     private $cakePHPFullyQualifiedClassNameResolver;
 
-    public function __construct(CakePHPFullyQualifiedClassNameResolver $cakePHPFullyQualifiedClassNameResolver)
-    {
+    public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
+        CakePHPFullyQualifiedClassNameResolver $cakePHPFullyQualifiedClassNameResolver
+    ) {
         $this->cakePHPFullyQualifiedClassNameResolver = $cakePHPFullyQualifiedClassNameResolver;
     }
 

@@ -35,8 +35,11 @@ final class AssertSameBoolNullToSpecificMethodRector extends AbstractPHPUnitRect
      */
     private $argumentMover;
 
-    public function __construct(IdentifierManipulator $identifierManipulator, ArgumentMover $argumentMover)
-    {
+    public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
+        IdentifierManipulator $identifierManipulator,
+        ArgumentMover $argumentMover
+    ) {
         $this->identifierManipulator = $identifierManipulator;
 
         $this->constantWithAssertMethods = [

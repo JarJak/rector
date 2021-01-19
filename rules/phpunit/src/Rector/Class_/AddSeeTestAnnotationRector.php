@@ -25,7 +25,7 @@ final class AddSeeTestAnnotationRector extends AbstractRector
      */
     private $testClassResolver;
 
-    public function __construct(TestClassResolver $testClassResolver)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, TestClassResolver $testClassResolver)
     {
         $this->testClassResolver = $testClassResolver;
     }

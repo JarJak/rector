@@ -37,8 +37,10 @@ final class GetRequestRector extends AbstractRector
      */
     private $controllerMethodAnalyzer;
 
-    public function __construct(ControllerMethodAnalyzer $controllerMethodAnalyzer)
-    {
+    public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
+        ControllerMethodAnalyzer $controllerMethodAnalyzer
+    ) {
         $this->controllerMethodAnalyzer = $controllerMethodAnalyzer;
     }
 

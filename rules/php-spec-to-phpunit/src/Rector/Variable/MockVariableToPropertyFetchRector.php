@@ -24,7 +24,7 @@ final class MockVariableToPropertyFetchRector extends AbstractPhpSpecToPHPUnitRe
      */
     private $phpSpecMockCollector;
 
-    public function __construct(PhpSpecMockCollector $phpSpecMockCollector)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, PhpSpecMockCollector $phpSpecMockCollector)
     {
         $this->phpSpecMockCollector = $phpSpecMockCollector;
     }

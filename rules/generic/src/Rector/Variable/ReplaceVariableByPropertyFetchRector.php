@@ -25,8 +25,10 @@ final class ReplaceVariableByPropertyFetchRector extends AbstractRector
      */
     private $variablesToPropertyFetchCollection;
 
-    public function __construct(VariablesToPropertyFetchCollection $variablesToPropertyFetchCollection)
-    {
+    public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
+        VariablesToPropertyFetchCollection $variablesToPropertyFetchCollection
+    ) {
         $this->variablesToPropertyFetchCollection = $variablesToPropertyFetchCollection;
     }
 

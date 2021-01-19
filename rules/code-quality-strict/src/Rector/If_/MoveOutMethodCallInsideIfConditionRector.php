@@ -30,8 +30,10 @@ final class MoveOutMethodCallInsideIfConditionRector extends AbstractRector
      */
     private $methodCallToVariableNameResolver;
 
-    public function __construct(MethodCallToVariableNameResolver $methodCallToVariableNameResolver)
-    {
+    public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
+        MethodCallToVariableNameResolver $methodCallToVariableNameResolver
+    ) {
         $this->methodCallToVariableNameResolver = $methodCallToVariableNameResolver;
     }
 

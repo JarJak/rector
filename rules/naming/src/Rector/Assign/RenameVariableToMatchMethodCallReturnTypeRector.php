@@ -71,6 +71,7 @@ final class RenameVariableToMatchMethodCallReturnTypeRector extends AbstractRect
     private $varTagValueNodeRenamer;
 
     public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
         BreakingVariableRenameGuard $breakingVariableRenameGuard,
         ExpectedNameResolver $expectedNameResolver,
         FamilyRelationsAnalyzer $familyRelationsAnalyzer,

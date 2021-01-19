@@ -23,7 +23,7 @@ final class SimplifyIfNotNullReturnRector extends AbstractRector
      */
     private $ifManipulator;
 
-    public function __construct(IfManipulator $ifManipulator)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, IfManipulator $ifManipulator)
     {
         $this->ifManipulator = $ifManipulator;
     }

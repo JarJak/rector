@@ -37,7 +37,7 @@ final class AddReturnTypeDeclarationRector extends AbstractRector implements Con
      */
     private $typeComparator;
 
-    public function __construct(TypeComparator $typeComparator)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, TypeComparator $typeComparator)
     {
         $this->typeComparator = $typeComparator;
     }

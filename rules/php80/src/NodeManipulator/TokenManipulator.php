@@ -15,7 +15,6 @@ use PhpParser\Node\Expr\BooleanNot;
 use PhpParser\Node\Expr\ConstFetch;
 use PhpParser\Node\Expr\FuncCall;
 use PhpParser\Node\Expr\MethodCall;
-use PhpParser\Node\Expr\PropertyFetch;
 use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\Stmt\If_;
 use PHPStan\Type\ArrayType;
@@ -89,23 +88,7 @@ final class TokenManipulator
         $this->replaceTokenDimFetchZeroWithGetTokenName($nodes, $singleTokenExpr);
 
         // replace "$token[1]"; with "$token->value"
-        $this->simpleCallableNodeTraverser->traverseNodesWithCallable($nodes, function (Node $node): ?PropertyFetch {
-            if (! $node instanceof ArrayDimFetch) {
-                return null;
-            }
-
-            if (! $this->isArrayDimFetchWithDimIntegerValue($node, 1)) {
-                return null;
-            }
-
-            /** @var ArrayDimFetch $node */
-            $tokenStaticType = $this->nodeTypeResolver->getStaticType($node->var);
-            if (! $tokenStaticType instanceof ArrayType) {
-                return null;
-            }
-
-            return new PropertyFetch($node->var, 'text');
-        });
+        $this->simpleCallableNodeTraverser->traverseNodesWithCallable();
     }
 
     /**
@@ -114,54 +97,10 @@ final class TokenManipulator
     public function refactorNonArrayToken(array $nodes, Expr $singleTokenExpr): void
     {
         // replace "$content = $token;" → "$content = $token->text;"
-        $this->simpleCallableNodeTraverser->traverseNodesWithCallable($nodes, function (Node $node) use (
-            $singleTokenExpr
-        ) {
-            if (! $node instanceof Assign) {
-                return null;
-            }
-
-            if (! $this->betterStandardPrinter->areNodesEqual($node->expr, $singleTokenExpr)) {
-                return null;
-            }
-
-            $tokenStaticType = $this->nodeTypeResolver->getStaticType($node->expr);
-            if ($tokenStaticType instanceof ArrayType) {
-                return null;
-            }
-
-            $node->expr = new PropertyFetch($singleTokenExpr, 'text');
-        });
+        $this->simpleCallableNodeTraverser->traverseNodesWithCallable();
 
         // replace "$name = null;" → "$name = $token->getTokenName();"
-        $this->simpleCallableNodeTraverser->traverseNodesWithCallable($nodes, function (Node $node) use (
-            $singleTokenExpr
-        ): ?Assign {
-            if (! $node instanceof Assign) {
-                return null;
-            }
-
-            $tokenStaticType = $this->nodeTypeResolver->getStaticType($node->expr);
-            if ($tokenStaticType instanceof ArrayType) {
-                return null;
-            }
-
-            if ($this->assignedNameExpr === null) {
-                return null;
-            }
-
-            if (! $this->betterStandardPrinter->areNodesEqual($node->var, $this->assignedNameExpr)) {
-                return null;
-            }
-
-            if (! $this->valueResolver->isValue($node->expr, 'null')) {
-                return null;
-            }
-
-            $node->expr = new MethodCall($singleTokenExpr, 'getTokenName');
-
-            return $node;
-        });
+        $this->simpleCallableNodeTraverser->traverseNodesWithCallable();
     }
 
     /**

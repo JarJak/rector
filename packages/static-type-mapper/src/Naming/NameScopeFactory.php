@@ -12,6 +12,7 @@ use PHPStan\Analyser\NameScope;
 use PHPStan\Type\Generic\TemplateTypeMap;
 use PHPStan\Type\Type;
 use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfo;
+use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory;
 use Rector\Core\Exception\ShouldNotHappenException;
 use Rector\NodeTypeResolver\Node\AttributeKey;
 use Rector\StaticTypeMapper\StaticTypeMapper;
@@ -25,6 +26,16 @@ final class NameScopeFactory
      * @var StaticTypeMapper
      */
     private $staticTypeMapper;
+
+    /**
+     * @var \Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory
+     */
+    private $phpDocInfoFactory;
+
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory)
+    {
+        $this->phpDocInfoFactory = $phpDocInfoFactory;
+    }
 
     public function createNameScopeFromNodeWithoutTemplateTypes(Node $node): NameScope
     {
@@ -106,7 +117,7 @@ final class NameScopeFactory
      */
     private function resolveTemplateTypesFromNode(Node $node): array
     {
-        $phpDocInfo = $node->getAttribute(AttributeKey::PHP_DOC_INFO);
+        $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($node);
         if (! $phpDocInfo instanceof PhpDocInfo) {
             return [];
         }

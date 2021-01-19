@@ -6,11 +6,11 @@ namespace Rector\Doctrine\NodeFactory;
 
 use PhpParser\Node\Stmt\Property;
 use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfo;
+use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory;
 use Rector\BetterPhpDocParser\ValueObject\PhpDocNode\Doctrine\Property_\GeneratedValueTagValueNode;
 use Rector\BetterPhpDocParser\ValueObject\PhpDocNode\Doctrine\Property_\IdTagValueNode;
 use Rector\Core\PhpParser\Node\NodeFactory;
 use Rector\Doctrine\PhpDocParser\Ast\PhpDoc\PhpDocTagNodeFactory;
-use Rector\NodeTypeResolver\Node\AttributeKey;
 
 final class EntityIdNodeFactory
 {
@@ -24,10 +24,19 @@ final class EntityIdNodeFactory
      */
     private $nodeFactory;
 
-    public function __construct(NodeFactory $nodeFactory, PhpDocTagNodeFactory $phpDocTagNodeFactory)
-    {
+    /**
+     * @var \Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory
+     */
+    private $phpDocInfoFactory;
+
+    public function __construct(
+        NodeFactory $nodeFactory,
+        PhpDocTagNodeFactory $phpDocTagNodeFactory,
+        PhpDocInfoFactory $phpDocInfoFactory
+    ) {
         $this->phpDocTagNodeFactory = $phpDocTagNodeFactory;
         $this->nodeFactory = $nodeFactory;
+        $this->phpDocInfoFactory = $phpDocInfoFactory;
     }
 
     public function createIdProperty(): Property
@@ -42,7 +51,7 @@ final class EntityIdNodeFactory
     private function decoratePropertyWithIdAnnotations(Property $property): void
     {
         /** @var PhpDocInfo $phpDocInfo */
-        $phpDocInfo = $property->getAttribute(AttributeKey::PHP_DOC_INFO);
+        $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($property);
 
         // add @var int
         $attributeAwareVarTagValueNode = $this->phpDocTagNodeFactory->createVarTagIntValueNode();

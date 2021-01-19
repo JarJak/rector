@@ -54,6 +54,7 @@ final class ExtractAttributeRouteNameConstantsRector extends AbstractRector
     private $smartFileSystem;
 
     public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
         RouteNameClassFactory $routeNameClassFactory,
         ConstantNameAndValueMatcher $constantNameAndValueMatcher,
         ConstantNameAndValueResolver $constantNameAndValueResolver,

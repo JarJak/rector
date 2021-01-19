@@ -42,6 +42,7 @@ final class ServiceEntityRepositoryParentCallToDIRector extends AbstractRector
     private $repositoryTypeFactory;
 
     public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
         RepositoryNodeFactory $repositoryNodeFactory,
         RepositoryTypeFactory $repositoryTypeFactory
     ) {

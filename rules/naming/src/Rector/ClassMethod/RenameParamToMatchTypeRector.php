@@ -53,6 +53,7 @@ final class RenameParamToMatchTypeRector extends AbstractRector
     private $matchParamTypeExpectedNameResolver;
 
     public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
         BreakingVariableRenameGuard $breakingVariableRenameGuard,
         ExpectedNameResolver $expectedNameResolver,
         MatchParamTypeExpectedNameResolver $matchParamTypeExpectedNameResolver,

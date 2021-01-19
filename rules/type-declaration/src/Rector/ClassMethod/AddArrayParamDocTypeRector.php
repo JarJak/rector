@@ -33,8 +33,11 @@ final class AddArrayParamDocTypeRector extends AbstractRector
      */
     private $phpDocTypeChanger;
 
-    public function __construct(ParamTypeInferer $paramTypeInferer, PhpDocTypeChanger $phpDocTypeChanger)
-    {
+    public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
+        ParamTypeInferer $paramTypeInferer,
+        PhpDocTypeChanger $phpDocTypeChanger
+    ) {
         $this->paramTypeInferer = $paramTypeInferer;
         $this->phpDocTypeChanger = $phpDocTypeChanger;
     }

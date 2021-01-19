@@ -39,8 +39,11 @@ final class OrderPublicInterfaceMethodRector extends AbstractRector implements C
      */
     private $stmtOrder;
 
-    public function __construct(ClassManipulator $classManipulator, StmtOrder $stmtOrder)
-    {
+    public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
+        ClassManipulator $classManipulator,
+        StmtOrder $stmtOrder
+    ) {
         $this->classManipulator = $classManipulator;
         $this->stmtOrder = $stmtOrder;
     }

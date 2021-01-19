@@ -26,7 +26,7 @@ final class SimplifyEmptyArrayCheckRector extends AbstractRector
      */
     private $binaryOpManipulator;
 
-    public function __construct(BinaryOpManipulator $binaryOpManipulator)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, BinaryOpManipulator $binaryOpManipulator)
     {
         $this->binaryOpManipulator = $binaryOpManipulator;
     }

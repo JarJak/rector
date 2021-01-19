@@ -26,7 +26,7 @@ final class OrderPropertyByComplexityRector extends AbstractConstantPropertyMeth
      */
     private $propertyRanker;
 
-    public function __construct(PropertyRanker $propertyRanker)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, PropertyRanker $propertyRanker)
     {
         $this->propertyRanker = $propertyRanker;
     }

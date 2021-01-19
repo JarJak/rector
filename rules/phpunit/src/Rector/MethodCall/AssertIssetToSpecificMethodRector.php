@@ -36,7 +36,7 @@ final class AssertIssetToSpecificMethodRector extends AbstractPHPUnitRector
      */
     private $identifierManipulator;
 
-    public function __construct(IdentifierManipulator $identifierManipulator)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, IdentifierManipulator $identifierManipulator)
     {
         $this->identifierManipulator = $identifierManipulator;
     }

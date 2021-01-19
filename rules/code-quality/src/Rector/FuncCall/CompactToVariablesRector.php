@@ -23,7 +23,7 @@ final class CompactToVariablesRector extends AbstractRector
      */
     private $compactConverter;
 
-    public function __construct(CompactConverter $compactConverter)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, CompactConverter $compactConverter)
     {
         $this->compactConverter = $compactConverter;
     }

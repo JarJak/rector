@@ -18,13 +18,13 @@ use PhpParser\Node\Stmt\Property;
 use PhpParser\Node\Stmt\Return_;
 use PHPStan\Type\ObjectType;
 use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfo;
+use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory;
 use Rector\BetterPhpDocParser\PhpDocManipulator\PhpDocTypeChanger;
 use Rector\Core\Exception\ShouldNotHappenException;
 use Rector\Core\PhpParser\Node\NodeFactory;
 use Rector\Core\ValueObject\MethodName;
 use Rector\Naming\Naming\PropertyNaming;
 use Rector\NodeNameResolver\NodeNameResolver;
-use Rector\NodeTypeResolver\Node\AttributeKey;
 use Rector\StaticTypeMapper\StaticTypeMapper;
 use Symplify\Astral\ValueObject\NodeBuilder\ClassBuilder;
 use Symplify\Astral\ValueObject\NodeBuilder\MethodBuilder;
@@ -57,18 +57,25 @@ final class UniqueObjectFactoryFactory
      */
     private $phpDocTypeChanger;
 
+    /**
+     * @var \Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory
+     */
+    private $phpDocInfoFactory;
+
     public function __construct(
         NodeFactory $nodeFactory,
         NodeNameResolver $nodeNameResolver,
         PropertyNaming $propertyNaming,
         StaticTypeMapper $staticTypeMapper,
-        PhpDocTypeChanger $phpDocTypeChanger
+        PhpDocTypeChanger $phpDocTypeChanger,
+        PhpDocInfoFactory $phpDocInfoFactory
     ) {
         $this->nodeNameResolver = $nodeNameResolver;
         $this->propertyNaming = $propertyNaming;
         $this->staticTypeMapper = $staticTypeMapper;
         $this->nodeFactory = $nodeFactory;
         $this->phpDocTypeChanger = $phpDocTypeChanger;
+        $this->phpDocInfoFactory = $phpDocInfoFactory;
     }
 
     public function createFactoryClass(Class_ $class, ObjectType $objectType): Class_
@@ -120,7 +127,7 @@ final class UniqueObjectFactoryFactory
         $property = $this->nodeFactory->createPrivateProperty($propertyName);
 
         /** @var PhpDocInfo $phpDocInfo */
-        $phpDocInfo = $property->getAttribute(AttributeKey::PHP_DOC_INFO);
+        $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($property);
         $this->phpDocTypeChanger->changeVarType($phpDocInfo, $objectType);
 
         $properties[] = $property;

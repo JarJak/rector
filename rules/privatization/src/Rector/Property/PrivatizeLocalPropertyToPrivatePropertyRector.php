@@ -36,8 +36,10 @@ final class PrivatizeLocalPropertyToPrivatePropertyRector extends AbstractRector
      */
     private $propertyVisibilityVendorLockResolver;
 
-    public function __construct(PropertyVisibilityVendorLockResolver $propertyVisibilityVendorLockResolver)
-    {
+    public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
+        PropertyVisibilityVendorLockResolver $propertyVisibilityVendorLockResolver
+    ) {
         $this->propertyVisibilityVendorLockResolver = $propertyVisibilityVendorLockResolver;
     }
 

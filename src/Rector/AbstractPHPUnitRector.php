@@ -36,7 +36,7 @@ abstract class AbstractPHPUnitRector extends AbstractRector
             return true;
         }
 
-        $phpDocInfo = $classMethod->getAttribute(PhpDocInfo::class);
+        $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($classMethod);
 
         if ($phpDocInfo instanceof PhpDocInfo) {
             return $phpDocInfo->hasByName('test');

@@ -61,9 +61,9 @@ final class MultiParentingToAbstractDependencyRector extends AbstractRector impl
     private $classInsertManipulator;
 
     public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
         ClassMethodNodeRemover $classMethodNodeRemover,
         InjectMethodFactory $injectMethodFactory,
-        PhpDocInfoFactory $phpDocInfoFactory,
         ClassInsertManipulator $classInsertManipulator
     ) {
         $this->injectMethodFactory = $injectMethodFactory;

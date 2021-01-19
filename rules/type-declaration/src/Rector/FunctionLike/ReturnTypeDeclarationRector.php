@@ -71,6 +71,7 @@ final class ReturnTypeDeclarationRector extends AbstractTypeDeclarationRector
     private $classMethodReturnTypeOverrideGuard;
 
     public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
         ReturnTypeInferer $returnTypeInferer,
         ChildReturnPopulator $childReturnPopulator,
         ReturnTypeAlreadyAddedChecker $returnTypeAlreadyAddedChecker,

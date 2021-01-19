@@ -39,6 +39,7 @@ final class CompleteDynamicPropertiesRector extends AbstractRector
     private $classLikeAnalyzer;
 
     public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
         MissingPropertiesFactory $missingPropertiesFactory,
         LocalPropertyAnalyzer $localPropertyAnalyzer,
         ClassLikeAnalyzer $classLikeAnalyzer

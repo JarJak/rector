@@ -19,7 +19,6 @@ use Rector\BetterPhpDocParser\ValueObject\PhpDocNode\Doctrine\Class_\EntityTagVa
 use Rector\BetterPhpDocParser\ValueObject\PhpDocNode\Doctrine\Class_\InheritanceTypeTagValueNode;
 use Rector\Doctrine\PhpDocParser\DoctrineDocBlockResolver;
 use Rector\NodeNameResolver\NodeNameResolver;
-use Rector\NodeTypeResolver\Node\AttributeKey;
 use Rector\NodeTypeResolver\NodeTypeResolver;
 
 final class DoctrineEntityManipulator
@@ -91,7 +90,7 @@ final class DoctrineEntityManipulator
             return false;
         }
 
-        $phpDocInfo = $class->getAttribute(AttributeKey::PHP_DOC_INFO);
+        $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($class);
         if (! $phpDocInfo instanceof PhpDocInfo) {
             return false;
         }
@@ -107,7 +106,7 @@ final class DoctrineEntityManipulator
     public function removeMappedByOrInversedByFromProperty(Property $property): void
     {
         /** @var PhpDocInfo $phpDocInfo */
-        $phpDocInfo = $property->getAttribute(AttributeKey::PHP_DOC_INFO);
+        $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($property);
         $relationTagValueNode = $phpDocInfo->getByType(DoctrineRelationTagValueNodeInterface::class);
 
         $shouldUpdate = false;

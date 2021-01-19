@@ -30,6 +30,7 @@ final class RemoveEmptyClassMethodRector extends AbstractRector
     private $controllerClassMethodManipulator;
 
     public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
         ClassMethodManipulator $classMethodManipulator,
         ControllerClassMethodManipulator $controllerClassMethodManipulator
     ) {

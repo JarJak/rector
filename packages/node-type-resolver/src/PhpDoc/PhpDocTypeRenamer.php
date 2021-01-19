@@ -11,8 +11,8 @@ use PHPStan\PhpDocParser\Ast\Type\IdentifierTypeNode;
 use PHPStan\PhpDocParser\Ast\Type\TypeNode;
 use PHPStan\Type\ObjectType;
 use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfo;
+use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory;
 use Rector\Generic\ValueObject\PseudoNamespaceToNamespace;
-use Rector\NodeTypeResolver\Node\AttributeKey;
 use Rector\StaticTypeMapper\StaticTypeMapper;
 use Symplify\SimplePhpDocParser\PhpDocNodeTraverser;
 
@@ -28,17 +28,26 @@ final class PhpDocTypeRenamer
      */
     private $staticTypeMapper;
 
-    public function __construct(PhpDocNodeTraverser $phpDocNodeTraverser, StaticTypeMapper $staticTypeMapper)
-    {
+    /**
+     * @var \Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory
+     */
+    private $phpDocInfoFactory;
+
+    public function __construct(
+        PhpDocNodeTraverser $phpDocNodeTraverser,
+        StaticTypeMapper $staticTypeMapper,
+        PhpDocInfoFactory $phpDocInfoFactory
+    ) {
         $this->phpDocNodeTraverser = $phpDocNodeTraverser;
         $this->staticTypeMapper = $staticTypeMapper;
+        $this->phpDocInfoFactory = $phpDocInfoFactory;
     }
 
     public function changeUnderscoreType(
         Node $node,
         PseudoNamespaceToNamespace $pseudoNamespaceToNamespace
     ): void {
-        $phpDocInfo = $node->getAttribute(AttributeKey::PHP_DOC_INFO);
+        $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($node);
         if (! $phpDocInfo instanceof PhpDocInfo) {
             return;
         }

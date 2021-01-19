@@ -26,7 +26,7 @@ final class BreakNotInLoopOrSwitchToReturnRector extends AbstractRector
      */
     private $contextAnalyzer;
 
-    public function __construct(ContextAnalyzer $contextAnalyzer)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, ContextAnalyzer $contextAnalyzer)
     {
         $this->contextAnalyzer = $contextAnalyzer;
     }

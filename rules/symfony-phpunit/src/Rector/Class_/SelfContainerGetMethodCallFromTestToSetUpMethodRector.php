@@ -35,6 +35,7 @@ final class SelfContainerGetMethodCallFromTestToSetUpMethodRector extends Abstra
     private $onContainerGetCallManipulator;
 
     public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
         KernelTestCaseNodeFactory $kernelTestCaseNodeFactory,
         OnContainerGetCallManipulator $onContainerGetCallManipulator,
         SelfContainerMethodCallCollector $selfContainerMethodCallCollector

@@ -39,8 +39,11 @@ final class ForeachToInArrayRector extends AbstractRector
      */
     private $commentsMerger;
 
-    public function __construct(BinaryOpManipulator $binaryOpManipulator, CommentsMerger $commentsMerger)
-    {
+    public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
+        BinaryOpManipulator $binaryOpManipulator,
+        CommentsMerger $commentsMerger
+    ) {
         $this->binaryOpManipulator = $binaryOpManipulator;
         $this->commentsMerger = $commentsMerger;
     }

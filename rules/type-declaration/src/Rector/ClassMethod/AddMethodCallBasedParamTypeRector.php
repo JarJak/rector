@@ -28,7 +28,7 @@ final class AddMethodCallBasedParamTypeRector extends AbstractRector
      */
     private $typeFactory;
 
-    public function __construct(TypeFactory $typeFactory)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, TypeFactory $typeFactory)
     {
         $this->typeFactory = $typeFactory;
     }

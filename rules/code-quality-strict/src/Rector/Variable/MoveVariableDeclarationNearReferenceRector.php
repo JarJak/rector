@@ -38,7 +38,7 @@ final class MoveVariableDeclarationNearReferenceRector extends AbstractRector
      */
     private $scopeAwareNodeFinder;
 
-    public function __construct(ScopeAwareNodeFinder $scopeAwareNodeFinder)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, ScopeAwareNodeFinder $scopeAwareNodeFinder)
     {
         $this->scopeAwareNodeFinder = $scopeAwareNodeFinder;
     }

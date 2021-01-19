@@ -33,7 +33,7 @@ final class FormerNullableArgumentToScalarTypedRector extends AbstractRector
      */
     private $callTypeAnalyzer;
 
-    public function __construct(CallTypeAnalyzer $callTypeAnalyzer)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, CallTypeAnalyzer $callTypeAnalyzer)
     {
         $this->callTypeAnalyzer = $callTypeAnalyzer;
     }

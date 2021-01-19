@@ -36,6 +36,7 @@ final class ChangeBigIntEntityPropertyToIntTypeRector extends AbstractRector
     private $docBlockClassRenamer;
 
     public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
         DoctrinePropertyAnalyzer $doctrinePropertyAnalyzer,
         DocBlockClassRenamer $docBlockClassRenamer
     ) {

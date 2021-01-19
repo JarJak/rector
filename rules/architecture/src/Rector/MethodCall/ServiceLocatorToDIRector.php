@@ -38,6 +38,7 @@ final class ServiceLocatorToDIRector extends AbstractRector
     private $propertyNaming;
 
     public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
         DoctrineEntityAndRepositoryMapperInterface $doctrineEntityAndRepositoryMapper,
         PropertyNaming $propertyNaming
     ) {

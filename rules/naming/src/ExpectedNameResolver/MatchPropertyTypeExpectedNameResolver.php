@@ -7,8 +7,8 @@ namespace Rector\Naming\ExpectedNameResolver;
 use PhpParser\Node;
 use PhpParser\Node\Stmt\Property;
 use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfo;
+use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory;
 use Rector\Naming\Naming\PropertyNaming;
-use Rector\NodeTypeResolver\Node\AttributeKey;
 
 final class MatchPropertyTypeExpectedNameResolver extends AbstractExpectedNameResolver
 {
@@ -18,11 +18,19 @@ final class MatchPropertyTypeExpectedNameResolver extends AbstractExpectedNameRe
     private $propertyNaming;
 
     /**
+     * @var PhpDocInfoFactory
+     */
+    private $phpDocInfoFactory;
+
+    /**
      * @required
      */
-    public function autowireMatchPropertyTypeExpectedNameResolver(PropertyNaming $propertyNaming): void
-    {
+    public function autowireMatchPropertyTypeExpectedNameResolver(
+        PropertyNaming $propertyNaming,
+        PhpDocInfoFactory $phpDocInfoFactory
+    ): void {
         $this->propertyNaming = $propertyNaming;
+        $this->phpDocInfoFactory = $phpDocInfoFactory;
     }
 
     /**
@@ -30,7 +38,7 @@ final class MatchPropertyTypeExpectedNameResolver extends AbstractExpectedNameRe
      */
     public function resolve(Node $node): ?string
     {
-        $phpDocInfo = $node->getAttribute(AttributeKey::PHP_DOC_INFO);
+        $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($node);
         if (! $phpDocInfo instanceof PhpDocInfo) {
             return null;
         }

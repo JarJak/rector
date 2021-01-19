@@ -34,6 +34,7 @@ final class ConstructClassMethodToSetUpTestCaseRector extends AbstractPHPUnitRec
     private $staticCallAnalyzer;
 
     public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
         SetUpClassMethodNodeManipulator $setUpClassMethodNodeManipulator,
         StaticCallAnalyzer $staticCallAnalyzer
     ) {

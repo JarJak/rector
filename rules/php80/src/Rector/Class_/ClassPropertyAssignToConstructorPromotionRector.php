@@ -43,6 +43,7 @@ final class ClassPropertyAssignToConstructorPromotionRector extends AbstractRect
     private $varTagRemover;
 
     public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
         PromotedPropertyResolver $promotedPropertyResolver,
         VariableRenamer $variableRenamer,
         VarTagRemover $varTagRemover

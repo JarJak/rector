@@ -17,8 +17,10 @@ abstract class AbstractIsAbleFunCallRector extends AbstractRector implements IsA
      */
     private $isArrayAndDualCheckToAble;
 
-    public function __construct(IsArrayAndDualCheckToAble $isArrayAndDualCheckToAble)
-    {
+    public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
+        IsArrayAndDualCheckToAble $isArrayAndDualCheckToAble
+    ) {
         $this->isArrayAndDualCheckToAble = $isArrayAndDualCheckToAble;
     }
 

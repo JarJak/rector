@@ -41,7 +41,7 @@ final class ArgumentAdderRector extends AbstractRector implements ConfigurableRe
      */
     private $argumentAddingScope;
 
-    public function __construct(ArgumentAddingScope $argumentAddingScope)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, ArgumentAddingScope $argumentAddingScope)
     {
         $this->argumentAddingScope = $argumentAddingScope;
     }

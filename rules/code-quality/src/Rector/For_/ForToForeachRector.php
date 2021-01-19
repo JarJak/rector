@@ -69,8 +69,11 @@ final class ForToForeachRector extends AbstractRector
      */
     private $iteratedExpr;
 
-    public function __construct(AssignManipulator $assignManipulator, Inflector $inflector)
-    {
+    public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
+        AssignManipulator $assignManipulator,
+        Inflector $inflector
+    ) {
         $this->assignManipulator = $assignManipulator;
         $this->inflector = $inflector;
     }

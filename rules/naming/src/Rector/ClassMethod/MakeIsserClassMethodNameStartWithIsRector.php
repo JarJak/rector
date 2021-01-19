@@ -38,8 +38,11 @@ final class MakeIsserClassMethodNameStartWithIsRector extends AbstractRector
      */
     private $methodCallRenamer;
 
-    public function __construct(MethodNameResolver $methodNameResolver, MethodCallRenamer $methodCallRenamer)
-    {
+    public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
+        MethodNameResolver $methodNameResolver,
+        MethodCallRenamer $methodCallRenamer
+    ) {
         $this->methodNameResolver = $methodNameResolver;
         $this->methodCallRenamer = $methodCallRenamer;
     }

@@ -21,8 +21,10 @@ final class RemoveUselessParamTagRector extends AbstractRector
      */
     private $deadParamTagValueNodeAnalyzer;
 
-    public function __construct(DeadParamTagValueNodeAnalyzer $deadParamTagValueNodeAnalyzer)
-    {
+    public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
+        DeadParamTagValueNodeAnalyzer $deadParamTagValueNodeAnalyzer
+    ) {
         $this->deadParamTagValueNodeAnalyzer = $deadParamTagValueNodeAnalyzer;
     }
 

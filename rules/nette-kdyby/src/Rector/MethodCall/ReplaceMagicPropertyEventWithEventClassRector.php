@@ -38,6 +38,7 @@ final class ReplaceMagicPropertyEventWithEventClassRector extends AbstractRector
     private $eventAndListenerTreeProvider;
 
     public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
         ClassNaming $classNaming,
         EventAndListenerTreeProvider $eventAndListenerTreeProvider
     ) {

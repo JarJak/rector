@@ -31,6 +31,7 @@ final class TemplateMagicAssignToExplicitVariableArrayRector extends AbstractRec
     private $actionRenderFactory;
 
     public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
         ActionRenderFactory $actionRenderFactory,
         TemplatePropertyAssignCollector $templatePropertyAssignCollector
     ) {

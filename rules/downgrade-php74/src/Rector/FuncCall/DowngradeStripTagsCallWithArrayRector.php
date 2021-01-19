@@ -36,7 +36,7 @@ final class DowngradeStripTagsCallWithArrayRector extends AbstractRector
      */
     private $variableNaming;
 
-    public function __construct(VariableNaming $variableNaming)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, VariableNaming $variableNaming)
     {
         $this->variableNaming = $variableNaming;
     }

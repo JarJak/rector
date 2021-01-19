@@ -41,6 +41,7 @@ final class FunctionToStaticMethodRector extends AbstractRector
     private $fullyQualifiedNameResolver;
 
     public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
         ClassNaming $classNaming,
         StaticMethodClassFactory $staticMethodClassFactory,
         FullyQualifiedNameResolver $fullyQualifiedNameResolver

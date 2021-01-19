@@ -33,7 +33,7 @@ final class StaticCallToFuncCallRector extends AbstractRector implements Configu
     /**
      * @param StaticCallToFuncCall[] $staticCallToFunctions
      */
-    public function __construct(array $staticCallToFunctions = [])
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, array $staticCallToFunctions = [])
     {
         $this->staticCallsToFunctions = $staticCallToFunctions;
     }

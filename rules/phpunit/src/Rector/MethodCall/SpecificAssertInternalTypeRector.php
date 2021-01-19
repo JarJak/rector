@@ -44,7 +44,7 @@ final class SpecificAssertInternalTypeRector extends AbstractPHPUnitRector
      */
     private $typeAnalyzer;
 
-    public function __construct(TypeAnalyzer $typeAnalyzer)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, TypeAnalyzer $typeAnalyzer)
     {
         $this->typeAnalyzer = $typeAnalyzer;
     }

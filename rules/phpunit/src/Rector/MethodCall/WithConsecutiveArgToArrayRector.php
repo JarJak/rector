@@ -31,7 +31,7 @@ final class WithConsecutiveArgToArrayRector extends AbstractRector
      */
     private $methodCallManipulator;
 
-    public function __construct(MethodCallManipulator $methodCallManipulator)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, MethodCallManipulator $methodCallManipulator)
     {
         $this->methodCallManipulator = $methodCallManipulator;
     }

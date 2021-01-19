@@ -27,8 +27,10 @@ final class ChangeFormArrayAccessToAnnotatedControlVariableRector extends Abstra
      */
     private $formVariableInputNameTypeResolver;
 
-    public function __construct(FormVariableInputNameTypeResolver $formVariableInputNameTypeResolver)
-    {
+    public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
+        FormVariableInputNameTypeResolver $formVariableInputNameTypeResolver
+    ) {
         $this->formVariableInputNameTypeResolver = $formVariableInputNameTypeResolver;
     }
 

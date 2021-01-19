@@ -29,7 +29,7 @@ final class FixClassCaseSensitivityNameRector extends AbstractRector
      */
     private $reflectionProvider;
 
-    public function __construct(ReflectionProvider $reflectionProvider)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, ReflectionProvider $reflectionProvider)
     {
         $this->reflectionProvider = $reflectionProvider;
     }

@@ -9,6 +9,7 @@ use PhpParser\Node\Expr;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassConst;
 use PhpParser\Node\Stmt\Property;
+use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory;
 use Rector\NodeTypeResolver\Node\AttributeKey;
 use Rector\Privatization\Naming\ConstantNaming;
 
@@ -19,9 +20,15 @@ final class ClassConstantFactory
      */
     private $constantNaming;
 
-    public function __construct(ConstantNaming $constantNaming)
+    /**
+     * @var \Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory
+     */
+    private $phpDocInfoFactory;
+
+    public function __construct(ConstantNaming $constantNaming, PhpDocInfoFactory $phpDocInfoFactory)
     {
         $this->constantNaming = $constantNaming;
+        $this->phpDocInfoFactory = $phpDocInfoFactory;
     }
 
     public function createFromProperty(Property $property): ClassConst
@@ -37,7 +44,10 @@ final class ClassConstantFactory
         $classConst = new ClassConst([$const]);
         $classConst->flags = $property->flags & ~ Class_::MODIFIER_STATIC;
 
-        $classConst->setAttribute(AttributeKey::PHP_DOC_INFO, $property->getAttribute(AttributeKey::PHP_DOC_INFO));
+        $classConst->setAttribute(
+            AttributeKey::PHP_DOC_INFO,
+            $this->phpDocInfoFactory->createFromNodeOrEmpty($property)
+        );
 
         return $classConst;
     }

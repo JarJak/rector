@@ -30,7 +30,7 @@ final class StrStartsWithRector extends AbstractRector
     /**
      * @param StrStartWithMatchAndRefactorInterface[] $strStartWithMatchAndRefactors
      */
-    public function __construct(array $strStartWithMatchAndRefactors)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, array $strStartWithMatchAndRefactors)
     {
         $this->strStartWithMatchAndRefactors = $strStartWithMatchAndRefactors;
     }

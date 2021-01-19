@@ -22,7 +22,7 @@ final class AssertSameTrueFalseToAssertTrueFalseRector extends AbstractPHPUnitRe
      */
     private $argumentMover;
 
-    public function __construct(ArgumentMover $argumentMover)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, ArgumentMover $argumentMover)
     {
         $this->argumentMover = $argumentMover;
     }

@@ -52,6 +52,7 @@ final class ImproveDoctrineCollectionDocTypeInEntityRector extends AbstractRecto
     private $phpDocTypeChanger;
 
     public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
         CollectionTypeFactory $collectionTypeFactory,
         AssignManipulator $assignManipulator,
         CollectionTypeResolver $collectionTypeResolver,

@@ -91,7 +91,7 @@ final class DoctrineDocBlockResolver
 
     public function getDoctrineRelationTagValueNode(Property $property): ?DoctrineRelationTagValueNodeInterface
     {
-        $phpDocInfo = $property->getAttribute(AttributeKey::PHP_DOC_INFO);
+        $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($property);
         if ($phpDocInfo === null) {
             return null;
         }
@@ -147,7 +147,7 @@ final class DoctrineDocBlockResolver
 
     private function hasPropertyDoctrineIdTag(Property $property): bool
     {
-        $phpDocInfo = $property->getAttribute(AttributeKey::PHP_DOC_INFO);
+        $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($property);
 
         return $phpDocInfo ? $phpDocInfo->hasByType(IdTagValueNode::class) : false;
     }

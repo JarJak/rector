@@ -40,8 +40,10 @@ final class MoveServicesBySuffixToDirectoryRector extends AbstractRector impleme
      */
     private $expectedFileLocationResolver;
 
-    public function __construct(ExpectedFileLocationResolver $expectedFileLocationResolver)
-    {
+    public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
+        ExpectedFileLocationResolver $expectedFileLocationResolver
+    ) {
         $this->expectedFileLocationResolver = $expectedFileLocationResolver;
     }
 
@@ -106,6 +108,16 @@ CODE_SAMPLE
     {
         return [FileNode::class];
     }
+
+    /**
+     * A. Match classes by suffix and move them to group namespace
+     *
+     * E.g. "App\Controller\SomeException"
+     * ↓
+     * "App\Exception\SomeException"
+     *
+     * @param string[] $groupNamesBySuffix
+     */
 
     /**
      * A. Match classes by suffix and move them to group namespace

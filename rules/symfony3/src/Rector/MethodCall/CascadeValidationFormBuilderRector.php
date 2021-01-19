@@ -29,7 +29,7 @@ final class CascadeValidationFormBuilderRector extends AbstractRector
      */
     private $arrayManipulator;
 
-    public function __construct(ArrayManipulator $arrayManipulator)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, ArrayManipulator $arrayManipulator)
     {
         $this->arrayManipulator = $arrayManipulator;
     }

@@ -14,7 +14,6 @@ use Rector\Core\Exception\ShouldNotHappenException;
 use Rector\Core\HttpKernel\RectorKernel;
 use Rector\Core\PhpParser\Node\BetterNodeFinder;
 use Rector\FileSystemRector\Parser\FileInfoParser;
-use Rector\NodeTypeResolver\Node\AttributeKey;
 use Symplify\EasyTesting\DataProvider\StaticFixtureFinder;
 use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
 use Symplify\SmartFileSystem\SmartFileInfo;
@@ -40,6 +39,12 @@ abstract class AbstractPhpDocInfoTest extends AbstractKernelTestCase
      * @var PhpDocInfoFactory
      */
     private $phpDocInfoFactory;
+
+    public function __construct(\Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory $phpDocInfoFactory)
+    {
+        $this->phpDocInfoFactory = $phpDocInfoFactory;
+        parent::__construct();
+    }
 
     protected function setUp(): void
     {
@@ -125,7 +130,7 @@ abstract class AbstractPhpDocInfoTest extends AbstractKernelTestCase
     private function doTestContainsTagValueNodeType(Node $node, string $tagValueNodeType, SmartFileInfo $fileInfo): void
     {
         /** @var PhpDocInfo $phpDocInfo */
-        $phpDocInfo = $node->getAttribute(AttributeKey::PHP_DOC_INFO);
+        $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($node);
 
         $this->assertTrue($phpDocInfo->hasByType($tagValueNodeType), $fileInfo->getRelativeFilePathFromCwd());
     }

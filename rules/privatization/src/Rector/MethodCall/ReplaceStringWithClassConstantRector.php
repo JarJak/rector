@@ -35,8 +35,10 @@ final class ReplaceStringWithClassConstantRector extends AbstractRector implemen
      */
     private $classConstantFetchValueFactory;
 
-    public function __construct(ClassConstantFetchValueFactory $classConstantFetchValueFactory)
-    {
+    public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
+        ClassConstantFetchValueFactory $classConstantFetchValueFactory
+    ) {
         $this->classConstantFetchValueFactory = $classConstantFetchValueFactory;
     }
 

@@ -9,7 +9,7 @@ use PhpParser\Node;
 use PHPStan\Type\Type;
 use PHPStan\Type\UnionType;
 use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfo;
-use Rector\NodeTypeResolver\Node\AttributeKey;
+use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory;
 use Rector\StaticTypeMapper\ValueObject\Type\AliasedObjectType;
 use Symplify\Astral\NodeTraverser\SimpleCallableNodeTraverser;
 
@@ -26,9 +26,17 @@ final class DocAliasResolver
      */
     private $simpleCallableNodeTraverser;
 
-    public function __construct(SimpleCallableNodeTraverser $simpleCallableNodeTraverser)
-    {
+    /**
+     * @var \Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory
+     */
+    private $phpDocInfoFactory;
+
+    public function __construct(
+        SimpleCallableNodeTraverser $simpleCallableNodeTraverser,
+        PhpDocInfoFactory $phpDocInfoFactory
+    ) {
         $this->simpleCallableNodeTraverser = $simpleCallableNodeTraverser;
+        $this->phpDocInfoFactory = $phpDocInfoFactory;
     }
 
     /**
@@ -47,7 +55,7 @@ final class DocAliasResolver
             }
 
             /** @var PhpDocInfo $phpDocInfo */
-            $phpDocInfo = $node->getAttribute(AttributeKey::PHP_DOC_INFO);
+            $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($node);
 
             $possibleDocAliases = $this->collectVarType($phpDocInfo, $possibleDocAliases);
 

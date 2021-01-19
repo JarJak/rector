@@ -8,10 +8,21 @@ use PhpParser\Node;
 use PhpParser\Node\Stmt\Expression;
 use PHPStan\PhpDocParser\Ast\PhpDoc\VarTagValueNode;
 use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfo;
+use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory;
 use Rector\NodeTypeResolver\Node\AttributeKey;
 
 final class VarTagValueNodeRenamer
 {
+    /**
+     * @var \Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory
+     */
+    private $phpDocInfoFactory;
+
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory)
+    {
+        $this->phpDocInfoFactory = $phpDocInfoFactory;
+    }
+
     public function renameAssignVarTagVariableName(Node $node, string $originalName, string $expectedName): void
     {
         $phpDocInfo = $this->resolvePhpDocInfo($node);
@@ -36,11 +47,11 @@ final class VarTagValueNodeRenamer
      */
     private function resolvePhpDocInfo(Node $node): ?PhpDocInfo
     {
-        $phpDocInfo = $node->getAttribute(AttributeKey::PHP_DOC_INFO);
+        $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($node);
 
         $expression = $node->getAttribute(AttributeKey::CURRENT_STATEMENT);
         if ($expression instanceof Node) {
-            $expressionPhpDocInfo = $expression->getAttribute(AttributeKey::PHP_DOC_INFO);
+            $expressionPhpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($expression);
         }
 
         return $expressionPhpDocInfo ?? $phpDocInfo;

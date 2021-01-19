@@ -30,8 +30,11 @@ final class PropertyTypeDeclarationRector extends AbstractRector
      */
     private $phpDocTypeChanger;
 
-    public function __construct(PropertyTypeInferer $propertyTypeInferer, PhpDocTypeChanger $phpDocTypeChanger)
-    {
+    public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
+        PropertyTypeInferer $propertyTypeInferer,
+        PhpDocTypeChanger $phpDocTypeChanger
+    ) {
         $this->propertyTypeInferer = $propertyTypeInferer;
         $this->phpDocTypeChanger = $phpDocTypeChanger;
     }

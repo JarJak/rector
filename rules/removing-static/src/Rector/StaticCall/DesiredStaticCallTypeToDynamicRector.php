@@ -33,8 +33,11 @@ final class DesiredStaticCallTypeToDynamicRector extends AbstractRector
      */
     private $propertyNaming;
 
-    public function __construct(PropertyNaming $propertyNaming, ParameterProvider $parameterProvider)
-    {
+    public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
+        PropertyNaming $propertyNaming,
+        ParameterProvider $parameterProvider
+    ) {
         $this->classTypes = $parameterProvider->provideArrayParameter(Option::TYPES_TO_REMOVE_STATIC_FROM);
 
         $this->propertyNaming = $propertyNaming;

@@ -27,7 +27,7 @@ final class MockeryTearDownRector extends AbstractRector
      */
     private $mockistaDetector;
 
-    public function __construct(MockistaDetector $mockistaDetector)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, MockistaDetector $mockistaDetector)
     {
         $this->mockistaDetector = $mockistaDetector;
     }

@@ -24,8 +24,10 @@ final class ChangeReturnTypeOfClassMethodWithGetIdRector extends AbstractRector
      */
     private $doctrineEntityManipulator;
 
-    public function __construct(DoctrineEntityManipulator $doctrineEntityManipulator)
-    {
+    public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
+        DoctrineEntityManipulator $doctrineEntityManipulator
+    ) {
         $this->doctrineEntityManipulator = $doctrineEntityManipulator;
     }
 

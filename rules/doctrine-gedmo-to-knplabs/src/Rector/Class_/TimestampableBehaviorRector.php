@@ -25,7 +25,7 @@ final class TimestampableBehaviorRector extends AbstractRector
      */
     private $classManipulator;
 
-    public function __construct(ClassManipulator $classManipulator)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, ClassManipulator $classManipulator)
     {
         $this->classManipulator = $classManipulator;
     }

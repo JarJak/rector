@@ -26,7 +26,7 @@ final class AssertTrueFalseToSpecificMethodRector extends AbstractPHPUnitRector
      */
     private $functionNameWithAssertMethods = [];
 
-    public function __construct()
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory)
     {
         $this->functionNameWithAssertMethods = [
             new FunctionNameWithAssertMethods('is_readable', 'assertIsReadable', 'assertNotIsReadable'),

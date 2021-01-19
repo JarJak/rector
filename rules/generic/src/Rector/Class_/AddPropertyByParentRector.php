@@ -38,7 +38,7 @@ final class AddPropertyByParentRector extends AbstractRector implements Configur
      */
     private $propertyNaming;
 
-    public function __construct(PropertyNaming $propertyNaming)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, PropertyNaming $propertyNaming)
     {
         $this->propertyNaming = $propertyNaming;
     }

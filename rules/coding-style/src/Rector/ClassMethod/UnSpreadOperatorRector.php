@@ -24,8 +24,10 @@ final class UnSpreadOperatorRector extends AbstractRector
      */
     private $spreadVariablesCollector;
 
-    public function __construct(SpreadVariablesCollector $spreadVariablesCollector)
-    {
+    public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
+        SpreadVariablesCollector $spreadVariablesCollector
+    ) {
         $this->spreadVariablesCollector = $spreadVariablesCollector;
     }
 

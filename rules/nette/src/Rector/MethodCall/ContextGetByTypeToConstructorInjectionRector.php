@@ -24,7 +24,7 @@ final class ContextGetByTypeToConstructorInjectionRector extends AbstractToConst
      */
     private $testsNodeAnalyzer;
 
-    public function __construct(TestsNodeAnalyzer $testsNodeAnalyzer)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, TestsNodeAnalyzer $testsNodeAnalyzer)
     {
         $this->testsNodeAnalyzer = $testsNodeAnalyzer;
     }

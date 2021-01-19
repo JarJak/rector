@@ -23,7 +23,7 @@ final class ThisCallOnStaticMethodToStaticCallRector extends AbstractRector
      */
     private $staticAnalyzer;
 
-    public function __construct(StaticAnalyzer $staticAnalyzer)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, StaticAnalyzer $staticAnalyzer)
     {
         $this->staticAnalyzer = $staticAnalyzer;
     }

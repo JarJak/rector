@@ -43,6 +43,7 @@ final class RemoveUnusedAssignVariableRector extends AbstractRector
     private $nextVariableUsageNodeFinder;
 
     public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
         NextVariableUsageNodeFinder $nextVariableUsageNodeFinder,
         PreviousVariableAssignNodeFinder $previousVariableAssignNodeFinder,
         ScopeNestingComparator $scopeNestingComparator,

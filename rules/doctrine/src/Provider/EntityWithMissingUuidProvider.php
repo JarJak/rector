@@ -8,12 +8,12 @@ use Nette\Utils\Strings;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\Property;
 use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfo;
+use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory;
 use Rector\BetterPhpDocParser\ValueObject\PhpDocNode\Doctrine\Property_\ColumnTagValueNode;
 use Rector\BetterPhpDocParser\ValueObject\PhpDocNode\Doctrine\Property_\IdTagValueNode;
 use Rector\Doctrine\PhpDocParser\DoctrineDocBlockResolver;
 use Rector\NodeCollector\NodeCollector\ParsedNodeCollector;
 use Rector\NodeNameResolver\NodeNameResolver;
-use Rector\NodeTypeResolver\Node\AttributeKey;
 
 final class EntityWithMissingUuidProvider
 {
@@ -43,14 +43,21 @@ final class EntityWithMissingUuidProvider
      */
     private $nodeNameResolver;
 
+    /**
+     * @var \Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory
+     */
+    private $phpDocInfoFactory;
+
     public function __construct(
         DoctrineDocBlockResolver $doctrineDocBlockResolver,
         NodeNameResolver $nodeNameResolver,
-        ParsedNodeCollector $parsedNodeCollector
+        ParsedNodeCollector $parsedNodeCollector,
+        PhpDocInfoFactory $phpDocInfoFactory
     ) {
         $this->parsedNodeCollector = $parsedNodeCollector;
         $this->doctrineDocBlockResolver = $doctrineDocBlockResolver;
         $this->nodeNameResolver = $nodeNameResolver;
+        $this->phpDocInfoFactory = $phpDocInfoFactory;
     }
 
     /**
@@ -106,7 +113,7 @@ final class EntityWithMissingUuidProvider
     private function isPropertyClassIdWithUuidType(Property $property): bool
     {
         /** @var PhpDocInfo $propertyPhpDocInfo */
-        $propertyPhpDocInfo = $property->getAttribute(AttributeKey::PHP_DOC_INFO);
+        $propertyPhpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($property);
         if (! $propertyPhpDocInfo->hasByType(IdTagValueNode::class)) {
             return false;
         }

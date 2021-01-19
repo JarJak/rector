@@ -7,12 +7,22 @@ namespace Rector\Core\PhpDoc;
 use PhpParser\Node;
 use Rector\BetterPhpDocParser\Contract\Doctrine\DoctrineRelationTagValueNodeInterface;
 use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfo;
+use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory;
 use Rector\BetterPhpDocParser\ValueObject\PhpDocNode\JMS\SerializerTypeTagValueNode;
 use Rector\BetterPhpDocParser\ValueObject\PhpDocNode\Symfony\Validator\Constraints\AssertChoiceTagValueNode;
-use Rector\NodeTypeResolver\Node\AttributeKey;
 
 final class PhpDocClassRenamer
 {
+    /**
+     * @var \Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory
+     */
+    private $phpDocInfoFactory;
+
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory)
+    {
+        $this->phpDocInfoFactory = $phpDocInfoFactory;
+    }
+
     /**
      * Covers annotations like @ORM, @Serializer, @Assert etc
      * See https://github.com/rectorphp/rector/issues/1872
@@ -22,7 +32,7 @@ final class PhpDocClassRenamer
     public function changeTypeInAnnotationTypes(Node $node, array $oldToNewClasses): void
     {
         /** @var PhpDocInfo $phpDocInfo */
-        $phpDocInfo = $node->getAttribute(AttributeKey::PHP_DOC_INFO);
+        $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($node);
 
         $this->processAssertChoiceTagValueNode($oldToNewClasses, $phpDocInfo);
         $this->processDoctrineRelationTagValueNode($oldToNewClasses, $phpDocInfo);

@@ -28,8 +28,11 @@ final class UnwrapFutureCompatibleIfFunctionExistsRector extends AbstractRector
      */
     private $functionSupportResolver;
 
-    public function __construct(FunctionSupportResolver $functionSupportResolver, IfManipulator $ifManipulator)
-    {
+    public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
+        FunctionSupportResolver $functionSupportResolver,
+        IfManipulator $ifManipulator
+    ) {
         $this->ifManipulator = $ifManipulator;
         $this->functionSupportResolver = $functionSupportResolver;
     }

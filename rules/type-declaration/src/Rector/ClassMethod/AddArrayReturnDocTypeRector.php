@@ -60,6 +60,7 @@ final class AddArrayReturnDocTypeRector extends AbstractRector
     private $phpDocTypeChanger;
 
     public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
         ReturnTypeInferer $returnTypeInferer,
         ClassMethodReturnTypeOverrideGuard $classMethodReturnTypeOverrideGuard,
         AdvancedArrayAnalyzer $advancedArrayAnalyzer,

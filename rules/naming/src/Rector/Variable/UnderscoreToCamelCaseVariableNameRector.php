@@ -44,6 +44,7 @@ final class UnderscoreToCamelCaseVariableNameRector extends AbstractRector
     private $paramRenamer;
 
     public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
         ReservedKeywordAnalyzer $reservedKeywordAnalyzer,
         ParamRenameFactory $paramRenameFactory,
         ParamRenamer $underscoreCamelCaseParamRenamer,

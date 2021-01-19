@@ -58,6 +58,7 @@ final class AnnotateThrowablesRector extends AbstractRector
     private $throwsFactory;
 
     public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
         ClassMethodReflectionHelper $classMethodReflectionHelper,
         ClassResolver $classResolver,
         FunctionAnnotationResolver $functionAnnotationResolver,

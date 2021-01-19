@@ -43,7 +43,7 @@ final class CountOnNullRector extends AbstractRector
      */
     private $countableAnalyzer;
 
-    public function __construct(CountableAnalyzer $countableAnalyzer)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, CountableAnalyzer $countableAnalyzer)
     {
         $this->countableAnalyzer = $countableAnalyzer;
     }

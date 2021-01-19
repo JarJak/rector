@@ -53,6 +53,7 @@ final class FormTypeInstanceToClassConstRector extends AbstractFormAddRector
     private $configureOptionsNodeFactory;
 
     public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
         BuilderFormNodeFactory $builderFormNodeFactory,
         ConfigureOptionsNodeFactory $configureOptionsNodeFactory
     ) {

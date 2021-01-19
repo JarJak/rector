@@ -29,8 +29,11 @@ final class UnwrapFutureCompatibleIfPhpVersionRector extends AbstractRector
      */
     private $conditionResolver;
 
-    public function __construct(ConditionEvaluator $conditionEvaluator, ConditionResolver $conditionResolver)
-    {
+    public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
+        ConditionEvaluator $conditionEvaluator,
+        ConditionResolver $conditionResolver
+    ) {
         $this->conditionEvaluator = $conditionEvaluator;
         $this->conditionResolver = $conditionResolver;
     }

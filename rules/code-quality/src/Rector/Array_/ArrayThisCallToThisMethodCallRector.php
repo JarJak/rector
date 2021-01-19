@@ -29,8 +29,10 @@ final class ArrayThisCallToThisMethodCallRector extends AbstractRector
      */
     private $arrayCallableMethodReferenceAnalyzer;
 
-    public function __construct(ArrayCallableMethodReferenceAnalyzer $arrayCallableMethodReferenceAnalyzer)
-    {
+    public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
+        ArrayCallableMethodReferenceAnalyzer $arrayCallableMethodReferenceAnalyzer
+    ) {
         $this->arrayCallableMethodReferenceAnalyzer = $arrayCallableMethodReferenceAnalyzer;
     }
 

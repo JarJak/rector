@@ -24,7 +24,7 @@ final class RemoveDeadConstructorRector extends AbstractRector
      */
     private $classMethodManipulator;
 
-    public function __construct(ClassMethodManipulator $classMethodManipulator)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, ClassMethodManipulator $classMethodManipulator)
     {
         $this->classMethodManipulator = $classMethodManipulator;
     }

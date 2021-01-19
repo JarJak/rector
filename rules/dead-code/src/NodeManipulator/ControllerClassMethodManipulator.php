@@ -9,6 +9,7 @@ use PhpParser\Node\Stmt\ClassMethod;
 use PHPStan\PhpDocParser\Ast\PhpDoc\GenericTagValueNode;
 use PHPStan\PhpDocParser\Ast\PhpDoc\PhpDocTagNode;
 use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfo;
+use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory;
 use Rector\NodeNameResolver\NodeNameResolver;
 use Rector\NodeTypeResolver\Node\AttributeKey;
 
@@ -19,9 +20,15 @@ final class ControllerClassMethodManipulator
      */
     private $nodeNameResolver;
 
-    public function __construct(NodeNameResolver $nodeNameResolver)
+    /**
+     * @var \Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory
+     */
+    private $phpDocInfoFactory;
+
+    public function __construct(NodeNameResolver $nodeNameResolver, PhpDocInfoFactory $phpDocInfoFactory)
     {
         $this->nodeNameResolver = $nodeNameResolver;
+        $this->phpDocInfoFactory = $phpDocInfoFactory;
     }
 
     public function isControllerClassMethodWithBehaviorAnnotation(ClassMethod $classMethod): bool
@@ -30,7 +37,7 @@ final class ControllerClassMethodManipulator
             return false;
         }
 
-        $phpDocInfo = $classMethod->getAttribute(AttributeKey::PHP_DOC_INFO);
+        $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($classMethod);
         if (! $phpDocInfo instanceof PhpDocInfo) {
             return false;
         }

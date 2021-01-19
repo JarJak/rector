@@ -39,7 +39,7 @@ final class RenameNamespaceRector extends AbstractRector implements Configurable
      */
     private $namespaceMatcher;
 
-    public function __construct(NamespaceMatcher $namespaceMatcher)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, NamespaceMatcher $namespaceMatcher)
     {
         $this->namespaceMatcher = $namespaceMatcher;
     }

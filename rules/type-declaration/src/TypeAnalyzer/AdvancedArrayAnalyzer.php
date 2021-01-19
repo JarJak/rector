@@ -14,7 +14,7 @@ use PHPStan\Type\StringType;
 use PHPStan\Type\Type;
 use PHPStan\Type\VoidType;
 use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfo;
-use Rector\NodeTypeResolver\Node\AttributeKey;
+use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory;
 use Rector\TypeDeclaration\TypeNormalizer;
 
 final class AdvancedArrayAnalyzer
@@ -24,9 +24,15 @@ final class AdvancedArrayAnalyzer
      */
     private $typeNormalizer;
 
-    public function __construct(TypeNormalizer $typeNormalizer)
+    /**
+     * @var \Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory
+     */
+    private $phpDocInfoFactory;
+
+    public function __construct(TypeNormalizer $typeNormalizer, PhpDocInfoFactory $phpDocInfoFactory)
     {
         $this->typeNormalizer = $typeNormalizer;
+        $this->phpDocInfoFactory = $phpDocInfoFactory;
     }
 
     public function isClassStringArrayByStringArrayOverride(ArrayType $arrayType, ClassMethod $classMethod): bool
@@ -98,7 +104,7 @@ final class AdvancedArrayAnalyzer
 
     private function getNodeReturnPhpDocType(ClassMethod $classMethod): ?Type
     {
-        $phpDocInfo = $classMethod->getAttribute(AttributeKey::PHP_DOC_INFO);
+        $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($classMethod);
         if (! $phpDocInfo instanceof PhpDocInfo) {
             return null;
         }

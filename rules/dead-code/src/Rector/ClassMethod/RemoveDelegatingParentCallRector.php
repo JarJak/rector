@@ -28,8 +28,10 @@ final class RemoveDelegatingParentCallRector extends AbstractRector
      */
     private $currentAndParentClassMethodComparator;
 
-    public function __construct(CurrentAndParentClassMethodComparator $currentAndParentClassMethodComparator)
-    {
+    public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
+        CurrentAndParentClassMethodComparator $currentAndParentClassMethodComparator
+    ) {
         $this->currentAndParentClassMethodComparator = $currentAndParentClassMethodComparator;
     }
 

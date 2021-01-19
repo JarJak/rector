@@ -40,7 +40,7 @@ final class ServiceGetterToConstructorInjectionRector extends AbstractRector imp
      */
     private $propertyNaming;
 
-    public function __construct(PropertyNaming $propertyNaming)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, PropertyNaming $propertyNaming)
     {
         $this->propertyNaming = $propertyNaming;
     }

@@ -37,8 +37,11 @@ final class AnnotatedPropertyInjectToConstructorInjectionRector extends Abstract
      */
     private $classChildAnalyzer;
 
-    public function __construct(ClassChildAnalyzer $classChildAnalyzer, PropertyUsageAnalyzer $propertyUsageAnalyzer)
-    {
+    public function __construct(
+        PhpDocInfoFactory $phpDocInfoFactory,
+        ClassChildAnalyzer $classChildAnalyzer,
+        PropertyUsageAnalyzer $propertyUsageAnalyzer
+    ) {
         $this->propertyUsageAnalyzer = $propertyUsageAnalyzer;
         $this->classChildAnalyzer = $classChildAnalyzer;
     }
