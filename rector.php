@@ -9,6 +9,7 @@ use Rector\Core\Configuration\Option;
 use Rector\Core\Rector\AbstractRector;
 use Rector\Core\ValueObject\PhpVersion;
 use Rector\DeadCode\Rector\ClassConst\RemoveUnusedClassConstantRector;
+use Rector\NodeTypeResolver\Node\AttributeKey;
 use Rector\Php55\Rector\String_\StringClassNameToClassConstantRector;
 use Rector\Restoration\Rector\ClassMethod\InferParamFromClassMethodReturnRector;
 use Rector\Restoration\ValueObject\InferParamFromClassMethodReturn;
@@ -22,17 +23,18 @@ use Symplify\SymfonyPhpConfig\ValueObjectInliner;
 return static function (ContainerConfigurator $containerConfigurator): void {
     $services = $containerConfigurator->services();
 
+    $configuration = ValueObjectInliner::inline([
+        new VariableMethodCallToServiceCall(
+            'PhpParser\Node',
+            'getAttribute',
+            AttributeKey::PHP_DOC_INFO,
+            'Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory',
+            'createFromNodeOrEmpty'
+        ),
+    ]);
     $services->set(VariableMethodCallToServiceCallRector::class)
         ->call('configure', [[
-            VariableMethodCallToServiceCallRector::VARIABLE_METHOD_CALLS_TO_SERVICE_CALLS => ValueObjectInliner::inline([
-                new VariableMethodCallToServiceCall(
-                    'PhpParser\Node',
-                    'getAttribute',
-                    'php_doc_info',
-                    'Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory',
-                    'createFromNodeOrEmpty'
-                ),
-            ]),
+            VariableMethodCallToServiceCallRector::VARIABLE_METHOD_CALLS_TO_SERVICE_CALLS => $configuration,
         ]]);
 
     $configuration = ValueObjectInliner::inline([

@@ -16,6 +16,9 @@ final class VariableMethodCallToServiceCall
      */
     private $methodName;
 
+    /**
+     * @var mixed
+     */
     private $argumentValue;
 
     /**
@@ -28,6 +31,9 @@ final class VariableMethodCallToServiceCall
      */
     private $serviceMethodName;
 
+    /**
+     * @param mixed $argumentValue
+     */
     public function __construct(
         string $variableType,
         string $methodName,
@@ -47,29 +53,17 @@ final class VariableMethodCallToServiceCall
         return $this->variableType;
     }
 
-    public function setVariableType(string $variableType): void
-    {
-        $this->variableType = $variableType;
-    }
-
     public function getMethodName(): string
     {
         return $this->methodName;
     }
 
-    public function setMethodName(string $methodName): void
-    {
-        $this->methodName = $methodName;
-    }
-
+    /**
+     * @return mixed
+     */
     public function getArgumentValue()
     {
         return $this->argumentValue;
-    }
-
-    public function setArgumentValue($argumentValue): void
-    {
-        $this->argumentValue = $argumentValue;
     }
 
     public function getServiceType(): string
@@ -77,18 +71,8 @@ final class VariableMethodCallToServiceCall
         return $this->serviceType;
     }
 
-    public function setServiceType(string $serviceType): void
-    {
-        $this->serviceType = $serviceType;
-    }
-
     public function getServiceMethodName(): string
     {
         return $this->serviceMethodName;
-    }
-
-    public function setServiceMethodName(string $serviceMethodName): void
-    {
-        $this->serviceMethodName = $serviceMethodName;
     }
 }
