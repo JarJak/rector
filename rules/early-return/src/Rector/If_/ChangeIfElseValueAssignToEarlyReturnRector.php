@@ -34,11 +34,8 @@ final class ChangeIfElseValueAssignToEarlyReturnRector extends AbstractRector
      */
     private $stmtsManipulator;
 
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        IfManipulator $ifManipulator,
-        StmtsManipulator $stmtsManipulator
-    ) {
+    public function __construct(IfManipulator $ifManipulator, StmtsManipulator $stmtsManipulator)
+    {
         $this->ifManipulator = $ifManipulator;
         $this->stmtsManipulator = $stmtsManipulator;
     }

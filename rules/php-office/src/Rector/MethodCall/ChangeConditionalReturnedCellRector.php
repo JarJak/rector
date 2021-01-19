@@ -24,7 +24,7 @@ final class ChangeConditionalReturnedCellRector extends AbstractRector
      */
     private $conditionalSetValues = [];
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory)
+    public function __construct()
     {
         $this->conditionalSetValues[] = new ConditionalSetValue('setCellValue', 'getCell', 'setValue', 2, false);
         $this->conditionalSetValues[] = new ConditionalSetValue(

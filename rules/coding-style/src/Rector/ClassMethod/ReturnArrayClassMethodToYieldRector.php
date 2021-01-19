@@ -50,11 +50,8 @@ final class ReturnArrayClassMethodToYieldRector extends AbstractRector implement
      */
     private $commentsMerger;
 
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        NodeTransformer $nodeTransformer,
-        CommentsMerger $commentsMerger
-    ) {
+    public function __construct(NodeTransformer $nodeTransformer, CommentsMerger $commentsMerger)
+    {
         $this->nodeTransformer = $nodeTransformer;
         $this->commentsMerger = $commentsMerger;
 

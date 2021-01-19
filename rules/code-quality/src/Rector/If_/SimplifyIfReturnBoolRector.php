@@ -40,11 +40,8 @@ final class SimplifyIfReturnBoolRector extends AbstractRector
      */
     private $exprBoolCaster;
 
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        CommentsMerger $commentsMerger,
-        ExprBoolCaster $exprBoolCaster
-    ) {
+    public function __construct(CommentsMerger $commentsMerger, ExprBoolCaster $exprBoolCaster)
+    {
         $this->commentsMerger = $commentsMerger;
         $this->exprBoolCaster = $exprBoolCaster;
     }

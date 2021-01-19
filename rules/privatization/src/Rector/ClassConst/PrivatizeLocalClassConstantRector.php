@@ -38,7 +38,7 @@ final class PrivatizeLocalClassConstantRector extends AbstractRector implements 
     private $parentClassConstantNodeFinder;
 
     public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
+
         ParentClassConstantNodeFinder $parentClassConstantNodeFinder,
         ParentConstantReflectionResolver $parentConstantReflectionResolver
     ) {

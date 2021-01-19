@@ -35,10 +35,8 @@ final class MakeGetComponentAssignAnnotatedRector extends AbstractRector
      */
     private $varAnnotationManipulator;
 
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        VarAnnotationManipulator $varAnnotationManipulator
-    ) {
+    public function __construct(VarAnnotationManipulator $varAnnotationManipulator)
+    {
         $this->varAnnotationManipulator = $varAnnotationManipulator;
     }
 

@@ -43,7 +43,7 @@ final class DesiredClassTypeToDynamicRector extends AbstractRector
     private $staticCallPresenceAnalyzer;
 
     public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
+
         PropertyNaming $propertyNaming,
         StaticCallPresenceAnalyzer $staticCallPresenceAnalyzer,
         ParameterProvider $parameterProvider

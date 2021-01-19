@@ -42,10 +42,7 @@ final class YieldClassMethodToArrayClassMethodRector extends AbstractRector impl
     /**
      * @param string[][] $methodsByType
      */
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        NodeTransformer $nodeTransformer,
-        array $methodsByType = [])
+    public function __construct(NodeTransformer $nodeTransformer, array $methodsByType = [])
     {
         $this->methodsByType = $methodsByType;
         $this->nodeTransformer = $nodeTransformer;

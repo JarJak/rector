@@ -42,11 +42,8 @@ final class PhpSpecMocksToPHPUnitMocksRector extends AbstractPhpSpecToPHPUnitRec
      */
     private $typeAnalyzer;
 
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        PhpSpecMockCollector $phpSpecMockCollector,
-        TypeAnalyzer $typeAnalyzer
-    ) {
+    public function __construct(PhpSpecMockCollector $phpSpecMockCollector, TypeAnalyzer $typeAnalyzer)
+    {
         $this->phpSpecMockCollector = $phpSpecMockCollector;
         $this->typeAnalyzer = $typeAnalyzer;
     }

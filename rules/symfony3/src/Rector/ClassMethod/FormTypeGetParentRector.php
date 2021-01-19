@@ -23,10 +23,8 @@ final class FormTypeGetParentRector extends AbstractRector
      */
     private $formTypeStringToTypeProvider;
 
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        FormTypeStringToTypeProvider $formTypeStringToTypeProvider
-    ) {
+    public function __construct(FormTypeStringToTypeProvider $formTypeStringToTypeProvider)
+    {
         $this->formTypeStringToTypeProvider = $formTypeStringToTypeProvider;
     }
 

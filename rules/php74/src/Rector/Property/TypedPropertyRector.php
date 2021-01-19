@@ -68,7 +68,7 @@ final class TypedPropertyRector extends AbstractRector implements ConfigurableRe
     private $varTagRemover;
 
     public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
+
         PropertyTypeInferer $propertyTypeInferer,
         VendorLockResolver $vendorLockResolver,
         DoctrineTypeAnalyzer $doctrineTypeAnalyzer,

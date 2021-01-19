@@ -27,10 +27,8 @@ final class MakeEntitySetterNullabilityInSyncWithPropertyRector extends Abstract
      */
     private $setterClassMethodAnalyzer;
 
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        SetterClassMethodAnalyzer $setterClassMethodAnalyzer
-    ) {
+    public function __construct(SetterClassMethodAnalyzer $setterClassMethodAnalyzer)
+    {
         $this->setterClassMethodAnalyzer = $setterClassMethodAnalyzer;
     }
 

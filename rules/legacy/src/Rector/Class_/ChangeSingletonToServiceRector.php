@@ -26,10 +26,8 @@ final class ChangeSingletonToServiceRector extends AbstractRector
      */
     private $singletonClassMethodAnalyzer;
 
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        SingletonClassMethodAnalyzer $singletonClassMethodAnalyzer
-    ) {
+    public function __construct(SingletonClassMethodAnalyzer $singletonClassMethodAnalyzer)
+    {
         $this->singletonClassMethodAnalyzer = $singletonClassMethodAnalyzer;
     }
 

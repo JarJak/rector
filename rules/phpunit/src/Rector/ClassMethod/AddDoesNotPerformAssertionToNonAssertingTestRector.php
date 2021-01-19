@@ -73,7 +73,7 @@ final class AddDoesNotPerformAssertionToNonAssertingTestRector extends AbstractP
     private $analyzedMethodsInFileName = [];
 
     public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
+
         ClassMethodReflectionFactory $classMethodReflectionFactory,
         DocBlockManipulator $docBlockManipulator,
         FileInfoParser $fileInfoParser

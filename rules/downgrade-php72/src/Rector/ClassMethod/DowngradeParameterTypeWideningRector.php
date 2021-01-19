@@ -41,7 +41,7 @@ final class DowngradeParameterTypeWideningRector extends AbstractRector
     private $phpDocTypeChanger;
 
     public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
+
         RectorChangeCollector $rectorChangeCollector,
         PhpDocTypeChanger $phpDocTypeChanger
     ) {

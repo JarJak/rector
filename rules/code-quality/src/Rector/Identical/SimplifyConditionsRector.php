@@ -31,11 +31,8 @@ final class SimplifyConditionsRector extends AbstractRector
      */
     private $binaryOpManipulator;
 
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        AssignAndBinaryMap $assignAndBinaryMap,
-        BinaryOpManipulator $binaryOpManipulator
-    ) {
+    public function __construct(AssignAndBinaryMap $assignAndBinaryMap, BinaryOpManipulator $binaryOpManipulator)
+    {
         $this->assignAndBinaryMap = $assignAndBinaryMap;
         $this->binaryOpManipulator = $binaryOpManipulator;
     }

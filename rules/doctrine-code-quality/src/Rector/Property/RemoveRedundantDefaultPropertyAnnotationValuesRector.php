@@ -45,7 +45,7 @@ final class RemoveRedundantDefaultPropertyAnnotationValuesRector extends Abstrac
     private $doctrineItemDefaultValueManipulator;
 
     public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
+
         DoctrinePropertyAnalyzer $doctrinePropertyAnalyzer,
         DoctrineItemDefaultValueManipulator $doctrineItemDefaultValueManipulator
     ) {

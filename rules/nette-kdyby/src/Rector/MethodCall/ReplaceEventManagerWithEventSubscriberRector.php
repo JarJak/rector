@@ -39,7 +39,7 @@ final class ReplaceEventManagerWithEventSubscriberRector extends AbstractRector
     private $eventValueObjectClassFactory;
 
     public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
+
         EventClassNaming $eventClassNaming,
         EventValueObjectClassFactory $eventValueObjectClassFactory
     ) {

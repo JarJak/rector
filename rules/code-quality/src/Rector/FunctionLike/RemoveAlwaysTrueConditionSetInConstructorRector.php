@@ -42,11 +42,8 @@ final class RemoveAlwaysTrueConditionSetInConstructorRector extends AbstractRect
      */
     private $typeFactory;
 
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        StaticTypeAnalyzer $staticTypeAnalyzer,
-        TypeFactory $typeFactory
-    ) {
+    public function __construct(StaticTypeAnalyzer $staticTypeAnalyzer, TypeFactory $typeFactory)
+    {
         $this->staticTypeAnalyzer = $staticTypeAnalyzer;
         $this->typeFactory = $typeFactory;
     }

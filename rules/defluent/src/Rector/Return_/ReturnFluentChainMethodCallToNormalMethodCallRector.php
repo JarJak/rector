@@ -38,7 +38,7 @@ final class ReturnFluentChainMethodCallToNormalMethodCallRector extends Abstract
     private $separateReturnMethodCallFactory;
 
     public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
+
         ReturnFluentMethodCallFactory $returnFluentMethodCallFactory,
         FluentMethodCallsFactory $fluentMethodCallsFactory,
         SeparateReturnMethodCallFactory $separateReturnMethodCallFactory

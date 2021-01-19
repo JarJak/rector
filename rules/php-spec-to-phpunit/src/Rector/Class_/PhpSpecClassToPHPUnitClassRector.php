@@ -54,7 +54,7 @@ final class PhpSpecClassToPHPUnitClassRector extends AbstractPhpSpecToPHPUnitRec
     private $setUpClassMethodFactory;
 
     public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
+
         ClassInsertManipulator $classInsertManipulator,
         LetManipulator $letManipulator,
         PhpSpecRenaming $phpSpecRenaming,

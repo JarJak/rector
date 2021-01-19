@@ -30,10 +30,8 @@ final class AnnotationToAttributeRector extends AbstractRector
      */
     private $annotationToAttributeConverter;
 
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        AnnotationToAttributeConverter $annotationToAttributeConverter
-    ) {
+    public function __construct(AnnotationToAttributeConverter $annotationToAttributeConverter)
+    {
         $this->annotationToAttributeConverter = $annotationToAttributeConverter;
     }
 

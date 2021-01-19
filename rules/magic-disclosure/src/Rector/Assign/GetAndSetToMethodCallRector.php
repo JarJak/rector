@@ -40,10 +40,8 @@ final class GetAndSetToMethodCallRector extends AbstractRector implements Config
      */
     private $propertyFetchManipulator;
 
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        PropertyFetchManipulator $propertyFetchManipulator
-    ) {
+    public function __construct(PropertyFetchManipulator $propertyFetchManipulator)
+    {
         $this->propertyFetchManipulator = $propertyFetchManipulator;
     }
 

@@ -39,7 +39,7 @@ final class CallableThisArrayToAnonymousFunctionRector extends AbstractRector
      */
     private $anonymousFunctionFactory;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory,
+    public function __construct(
     CallableClassMethodMatcher $callableClassMethodMatcher,
     AnonymousFunctionFactory $anonymousFunctionFactory)
     {

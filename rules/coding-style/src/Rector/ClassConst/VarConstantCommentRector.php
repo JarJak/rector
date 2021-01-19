@@ -36,11 +36,8 @@ final class VarConstantCommentRector extends AbstractRector
      */
     private $phpDocTypeChanger;
 
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        TypeComparator $typeComparator,
-        PhpDocTypeChanger $phpDocTypeChanger
-    ) {
+    public function __construct(TypeComparator $typeComparator, PhpDocTypeChanger $phpDocTypeChanger)
+    {
         $this->typeComparator = $typeComparator;
         $this->phpDocTypeChanger = $phpDocTypeChanger;
     }

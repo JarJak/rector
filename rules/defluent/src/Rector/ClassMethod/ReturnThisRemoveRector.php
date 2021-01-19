@@ -27,10 +27,8 @@ final class ReturnThisRemoveRector extends AbstractRector
      */
     private $parentClassMethodTypeOverrideGuard;
 
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        ParentClassMethodTypeOverrideGuard $parentClassMethodTypeOverrideGuard
-    ) {
+    public function __construct(ParentClassMethodTypeOverrideGuard $parentClassMethodTypeOverrideGuard)
+    {
         $this->parentClassMethodTypeOverrideGuard = $parentClassMethodTypeOverrideGuard;
     }
 

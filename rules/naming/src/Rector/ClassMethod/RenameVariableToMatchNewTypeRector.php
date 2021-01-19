@@ -37,7 +37,7 @@ final class RenameVariableToMatchNewTypeRector extends AbstractRector
     private $variableRenamer;
 
     public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
+
         BreakingVariableRenameGuard $breakingVariableRenameGuard,
         ExpectedNameResolver $expectedNameResolver,
         VariableRenamer $variableRenamer

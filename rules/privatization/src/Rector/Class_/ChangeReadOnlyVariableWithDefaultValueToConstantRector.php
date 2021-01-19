@@ -40,7 +40,7 @@ final class ChangeReadOnlyVariableWithDefaultValueToConstantRector extends Abstr
     private $varAnnotationManipulator;
 
     public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
+
         ClassMethodAssignManipulator $classMethodAssignManipulator,
         VarAnnotationManipulator $varAnnotationManipulator
     ) {

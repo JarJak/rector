@@ -28,10 +28,8 @@ final class RemoveEmptyMethodCallRector extends AbstractRector
      */
     private $classReflectionToAstResolver;
 
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        ClassReflectionToAstResolver $classReflectionToAstResolver
-    ) {
+    public function __construct(ClassReflectionToAstResolver $classReflectionToAstResolver)
+    {
         $this->classReflectionToAstResolver = $classReflectionToAstResolver;
     }
 

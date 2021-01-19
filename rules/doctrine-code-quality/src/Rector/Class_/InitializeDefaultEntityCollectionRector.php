@@ -30,10 +30,8 @@ final class InitializeDefaultEntityCollectionRector extends AbstractRector
      */
     private $classDependencyManipulator;
 
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        ClassDependencyManipulator $classDependencyManipulator
-    ) {
+    public function __construct(ClassDependencyManipulator $classDependencyManipulator)
+    {
         $this->classDependencyManipulator = $classDependencyManipulator;
     }
 

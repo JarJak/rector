@@ -34,11 +34,8 @@ final class UnionTypesRector extends AbstractRector
      */
     private $paramTagRemover;
 
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        ReturnTagRemover $returnTagRemover,
-        ParamTagRemover $paramTagRemover
-    ) {
+    public function __construct(ReturnTagRemover $returnTagRemover, ParamTagRemover $paramTagRemover)
+    {
         $this->returnTagRemover = $returnTagRemover;
         $this->paramTagRemover = $paramTagRemover;
     }

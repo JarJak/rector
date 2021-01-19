@@ -10,7 +10,6 @@ use PhpParser\Node\Stmt\ClassMethod;
 use PHPStan\Type\ObjectType;
 use PHPStan\Type\Type;
 use PHPStan\Type\UnionType;
-use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory;
 use Rector\Core\Contract\Rector\ConfigurableRectorInterface;
 use Rector\Core\PhpParser\Node\Manipulator\ClassInsertManipulator;
 use Rector\Core\Rector\AbstractRector;
@@ -61,7 +60,7 @@ final class MultiParentingToAbstractDependencyRector extends AbstractRector impl
     private $classInsertManipulator;
 
     public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
+
         ClassMethodNodeRemover $classMethodNodeRemover,
         InjectMethodFactory $injectMethodFactory,
         ClassInsertManipulator $classInsertManipulator

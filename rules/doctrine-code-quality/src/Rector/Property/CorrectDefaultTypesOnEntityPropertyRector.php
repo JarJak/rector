@@ -28,10 +28,8 @@ final class CorrectDefaultTypesOnEntityPropertyRector extends AbstractRector
      */
     private $doctrinePropertyAnalyzer;
 
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        DoctrinePropertyAnalyzer $doctrinePropertyAnalyzer
-    ) {
+    public function __construct(DoctrinePropertyAnalyzer $doctrinePropertyAnalyzer)
+    {
         $this->doctrinePropertyAnalyzer = $doctrinePropertyAnalyzer;
     }
 

@@ -60,7 +60,7 @@ final class RemoveUnusedAliasRector extends AbstractRector
     private $nameRenamer;
 
     public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
+
         DocAliasResolver $docAliasResolver,
         UseManipulator $useManipulator,
         UseNameAliasToNameResolver $useNameAliasToNameResolver,

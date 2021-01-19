@@ -26,10 +26,8 @@ final class RemoveDefaultArgumentValueRector extends AbstractRector
      */
     private $callDefaultParamValuesResolver;
 
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        CallDefaultParamValuesResolver $callDefaultParamValuesResolver
-    ) {
+    public function __construct(CallDefaultParamValuesResolver $callDefaultParamValuesResolver)
+    {
         $this->callDefaultParamValuesResolver = $callDefaultParamValuesResolver;
     }
 

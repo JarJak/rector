@@ -68,7 +68,7 @@ final class RemoveParentAndNameFromComponentConstructorRector extends AbstractRe
     private $methodReflectionProvider;
 
     public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
+
         StaticCallAnalyzer $staticCallAnalyzer,
         MethodReflectionProvider $methodReflectionProvider
     ) {

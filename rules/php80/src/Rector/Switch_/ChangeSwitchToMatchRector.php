@@ -42,11 +42,8 @@ final class ChangeSwitchToMatchRector extends AbstractRector
      */
     private $assignExpr;
 
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        SwitchExprsResolver $switchExprsResolver,
-        SwitchAnalyzer $switchAnalyzer
-    ) {
+    public function __construct(SwitchExprsResolver $switchExprsResolver, SwitchAnalyzer $switchAnalyzer)
+    {
         $this->switchExprsResolver = $switchExprsResolver;
         $this->switchAnalyzer = $switchAnalyzer;
     }

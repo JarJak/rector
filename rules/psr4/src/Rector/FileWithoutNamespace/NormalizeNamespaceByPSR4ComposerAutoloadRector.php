@@ -30,10 +30,8 @@ final class NormalizeNamespaceByPSR4ComposerAutoloadRector extends AbstractRecto
      */
     private $psr4AutoloadNamespaceMatcher;
 
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        PSR4AutoloadNamespaceMatcherInterface $psr4AutoloadNamespaceMatcher
-    ) {
+    public function __construct(PSR4AutoloadNamespaceMatcherInterface $psr4AutoloadNamespaceMatcher)
+    {
         $this->psr4AutoloadNamespaceMatcher = $psr4AutoloadNamespaceMatcher;
     }
 

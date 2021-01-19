@@ -40,7 +40,7 @@ final class AddUuidMirrorForRelationPropertyRector extends AbstractRector
     private $uuidMigrationDataCollector;
 
     public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
+
         PhpDocTagNodeFactory $phpDocTagNodeFactory,
         UuidMigrationDataCollector $uuidMigrationDataCollector
     ) {

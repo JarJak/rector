@@ -42,11 +42,8 @@ final class NullsafeOperatorRector extends AbstractRector
      */
     private $nullsafeManipulator;
 
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        IfManipulator $ifManipulator,
-        NullsafeManipulator $nullsafeManipulator
-    ) {
+    public function __construct(IfManipulator $ifManipulator, NullsafeManipulator $nullsafeManipulator)
+    {
         $this->ifManipulator = $ifManipulator;
         $this->nullsafeManipulator = $nullsafeManipulator;
     }

@@ -52,11 +52,8 @@ final class DateTimeToDateTimeInterfaceRector extends AbstractRector
      */
     private $phpDocTypeChanger;
 
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        NodeTypeResolver $nodeTypeResolver,
-        PhpDocTypeChanger $phpDocTypeChanger
-    ) {
+    public function __construct(NodeTypeResolver $nodeTypeResolver, PhpDocTypeChanger $phpDocTypeChanger)
+    {
         $this->nodeTypeResolver = $nodeTypeResolver;
         $this->phpDocTypeChanger = $phpDocTypeChanger;
     }

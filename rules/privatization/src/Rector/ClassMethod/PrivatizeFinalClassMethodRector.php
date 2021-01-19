@@ -23,10 +23,8 @@ final class PrivatizeFinalClassMethodRector extends AbstractRector
      */
     private $classMethodVisibilityGuard;
 
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        ClassMethodVisibilityGuard $classMethodVisibilityGuard
-    ) {
+    public function __construct(ClassMethodVisibilityGuard $classMethodVisibilityGuard)
+    {
         $this->classMethodVisibilityGuard = $classMethodVisibilityGuard;
     }
 

@@ -39,11 +39,8 @@ final class StaticCallOnNonStaticToInstanceCallRector extends AbstractRector
      */
     private $staticAnalyzer;
 
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        ClassMethodManipulator $classMethodManipulator,
-        StaticAnalyzer $staticAnalyzer
-    ) {
+    public function __construct(ClassMethodManipulator $classMethodManipulator, StaticAnalyzer $staticAnalyzer)
+    {
         $this->classMethodManipulator = $classMethodManipulator;
         $this->staticAnalyzer = $staticAnalyzer;
     }

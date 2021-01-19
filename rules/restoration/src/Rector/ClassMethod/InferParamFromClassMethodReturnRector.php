@@ -55,7 +55,7 @@ final class InferParamFromClassMethodReturnRector extends AbstractRector impleme
     private $phpDocTypeChanger;
 
     public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
+
         ReturnTypeInferer $returnTypeInferer,
         ConstantReturnToParamTypeConverter $constantReturnToParamTypeConverter,
         PhpDocTypeChanger $phpDocTypeChanger

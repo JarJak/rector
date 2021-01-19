@@ -29,11 +29,8 @@ final class ForeachItemsAssignToEmptyArrayToAssignRector extends AbstractRector
      */
     private $foreachNodeAnalyzer;
 
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        NodeUsageFinder $nodeUsageFinder,
-        ForeachNodeAnalyzer $foreachNodeAnalyzer
-    ) {
+    public function __construct(NodeUsageFinder $nodeUsageFinder, ForeachNodeAnalyzer $foreachNodeAnalyzer)
+    {
         $this->nodeUsageFinder = $nodeUsageFinder;
         $this->foreachNodeAnalyzer = $foreachNodeAnalyzer;
     }

@@ -26,10 +26,8 @@ final class ChangeIdenticalUuidToEqualsMethodCallRector extends AbstractRector
      */
     private $doctrineEntityManipulator;
 
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        DoctrineEntityManipulator $doctrineEntityManipulator
-    ) {
+    public function __construct(DoctrineEntityManipulator $doctrineEntityManipulator)
+    {
         $this->doctrineEntityManipulator = $doctrineEntityManipulator;
     }
 

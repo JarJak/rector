@@ -31,7 +31,7 @@ final class ActionInjectionToConstructorInjectionRector extends AbstractRector
     private $applicationServiceMapProvider;
 
     public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
+
         ServiceMapProvider $applicationServiceMapProvider,
         VariablesToPropertyFetchCollection $variablesToPropertyFetchCollection
     ) {

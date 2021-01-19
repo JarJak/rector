@@ -37,7 +37,7 @@ final class ChangeReadOnlyPropertyWithDefaultValueToConstantRector extends Abstr
     private $propertyFetchWithConstFetchReplacer;
 
     public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
+
         PropertyManipulator $propertyManipulator,
         ClassConstantFactory $classConstantFactory,
         PropertyFetchWithConstFetchReplacer $propertyFetchWithConstFetchReplacer

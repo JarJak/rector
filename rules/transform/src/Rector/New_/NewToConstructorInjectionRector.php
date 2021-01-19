@@ -44,11 +44,8 @@ final class NewToConstructorInjectionRector extends AbstractRector implements Co
      */
     private $propertyNaming;
 
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        PropertyFetchFactory $propertyFetchFactory,
-        PropertyNaming $propertyNaming
-    ) {
+    public function __construct(PropertyFetchFactory $propertyFetchFactory, PropertyNaming $propertyNaming)
+    {
         $this->propertyFetchFactory = $propertyFetchFactory;
         $this->propertyNaming = $propertyNaming;
     }

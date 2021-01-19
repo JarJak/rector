@@ -21,10 +21,8 @@ final class RemoveUselessReturnTagRector extends AbstractRector
      */
     private $deadReturnTagValueNodeAnalyzer;
 
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        DeadReturnTagValueNodeAnalyzer $deadReturnTagValueNodeAnalyzer
-    ) {
+    public function __construct(DeadReturnTagValueNodeAnalyzer $deadReturnTagValueNodeAnalyzer)
+    {
         $this->deadReturnTagValueNodeAnalyzer = $deadReturnTagValueNodeAnalyzer;
     }
 

@@ -36,11 +36,8 @@ final class ChangeNestedForeachIfsToEarlyContinueRector extends AbstractRector
      */
     private $conditionInverter;
 
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        ConditionInverter $conditionInverter,
-        IfManipulator $ifManipulator
-    ) {
+    public function __construct(ConditionInverter $conditionInverter, IfManipulator $ifManipulator)
+    {
         $this->ifManipulator = $ifManipulator;
         $this->conditionInverter = $conditionInverter;
     }

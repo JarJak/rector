@@ -64,7 +64,7 @@ final class NewUniqueObjectToEntityFactoryRector extends AbstractRector implemen
     private $staticTypesInClassResolver;
 
     public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
+
         PropertyNaming $propertyNaming,
         StaticTypesInClassResolver $staticTypesInClassResolver
     ) {

@@ -47,7 +47,7 @@ final class RemoveUnusedParameterRector extends AbstractRector implements ZeroCa
     private $unusedParameterResolver;
 
     public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
+
         ClassManipulator $classManipulator,
         MagicMethodDetector $magicMethodDetector,
         VariadicFunctionLikeDetector $variadicFunctionLikeDetector,

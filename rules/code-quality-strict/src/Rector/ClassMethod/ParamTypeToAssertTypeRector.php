@@ -33,11 +33,8 @@ final class ParamTypeToAssertTypeRector extends AbstractRector
      */
     private $subTypeAnalyzer;
 
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        ClassConstFetchFactory $classConstFetchFactory,
-        SubTypeAnalyzer $subTypeAnalyzer
-    ) {
+    public function __construct(ClassConstFetchFactory $classConstFetchFactory, SubTypeAnalyzer $subTypeAnalyzer)
+    {
         $this->classConstFetchFactory = $classConstFetchFactory;
         $this->subTypeAnalyzer = $subTypeAnalyzer;
     }

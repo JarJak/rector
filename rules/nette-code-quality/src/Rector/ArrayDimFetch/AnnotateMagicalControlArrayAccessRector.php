@@ -39,7 +39,7 @@ final class AnnotateMagicalControlArrayAccessRector extends AbstractArrayDimFetc
     private $arrayDimFetchRenamer;
 
     public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
+
         MethodNamesByInputNamesResolver $methodNamesByInputNamesResolver,
         ArrayDimFetchRenamer $arrayDimFetchRenamer
     ) {

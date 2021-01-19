@@ -51,7 +51,7 @@ final class ChangeAndIfToEarlyReturnRector extends AbstractRector
     private $stmtsManipulator;
 
     public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
+
         ConditionInverter $conditionInverter,
         IfManipulator $ifManipulator,
         StmtsManipulator $stmtsManipulator

@@ -52,7 +52,7 @@ final class MoveCurrentDateTimeDefaultInEntityToConstructorRector extends Abstra
     private $constructorAssignPropertyAnalyzer;
 
     public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
+
         ColumnDatetimePropertyAnalyzer $columnDatetimePropertyAnalyzer,
         ConstructorManipulator $constructorManipulator,
         ValueAssignFactory $valueAssignFactory,

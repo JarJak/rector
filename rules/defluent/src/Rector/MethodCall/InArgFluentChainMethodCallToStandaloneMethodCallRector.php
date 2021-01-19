@@ -35,7 +35,7 @@ final class InArgFluentChainMethodCallToStandaloneMethodCallRector extends Abstr
     private $variableFromNewFactory;
 
     public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
+
         NewFluentChainMethodCallNodeAnalyzer $newFluentChainMethodCallNodeAnalyzer,
         VariableFromNewFactory $variableFromNewFactory
     ) {

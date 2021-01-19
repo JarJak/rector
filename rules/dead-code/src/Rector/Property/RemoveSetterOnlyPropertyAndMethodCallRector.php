@@ -37,11 +37,8 @@ final class RemoveSetterOnlyPropertyAndMethodCallRector extends AbstractRector
      */
     private $vendorLockResolver;
 
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        PropertyManipulator $propertyManipulator,
-        VendorLockResolver $vendorLockResolver
-    ) {
+    public function __construct(PropertyManipulator $propertyManipulator, VendorLockResolver $vendorLockResolver)
+    {
         $this->propertyManipulator = $propertyManipulator;
         $this->vendorLockResolver = $vendorLockResolver;
     }

@@ -45,7 +45,7 @@ final class RenameClassRector extends AbstractRector implements ConfigurableRect
     private $renamedClassesDataCollector;
 
     public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
+
         RenamedClassesDataCollector $renamedClassesDataCollector,
         ClassRenamer $classRenamer
     ) {

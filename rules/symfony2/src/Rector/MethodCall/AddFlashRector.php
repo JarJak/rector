@@ -25,10 +25,8 @@ final class AddFlashRector extends AbstractRector
      */
     private $fluentChainMethodCallNodeAnalyzer;
 
-    public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
-        FluentChainMethodCallNodeAnalyzer $fluentChainMethodCallNodeAnalyzer
-    ) {
+    public function __construct(FluentChainMethodCallNodeAnalyzer $fluentChainMethodCallNodeAnalyzer)
+    {
         $this->fluentChainMethodCallNodeAnalyzer = $fluentChainMethodCallNodeAnalyzer;
     }
 

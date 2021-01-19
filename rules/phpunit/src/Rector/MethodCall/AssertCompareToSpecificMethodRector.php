@@ -35,7 +35,7 @@ final class AssertCompareToSpecificMethodRector extends AbstractPHPUnitRector
      */
     private $functionNamesWithAssertMethods = [];
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory)
+    public function __construct()
     {
         $this->functionNamesWithAssertMethods = [
             new FunctionNameWithAssertMethods('count', self::ASSERT_COUNT, self::ASSERT_NOT_COUNT),
