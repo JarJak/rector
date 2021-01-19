@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace Rector\NodeTypeResolver\NodeTypeResolver;
 
 use PhpParser\Node;
+use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\FunctionLike;
 use PhpParser\Node\Identifier;
 use PhpParser\Node\Param;
+use PhpParser\NodeTraverser;
 use PHPStan\Type\MixedType;
 use PHPStan\Type\Type;
 use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfo;
@@ -121,7 +123,22 @@ final class ParamTypeResolver implements NodeTypeResolverInterface
         $paramStaticType = new MixedType();
 
         // special case for param inside method/function
-        $this->simpleCallableNodeTraverser->traverseNodesWithCallable();
+        $this->simpleCallableNodeTraverser->traverseNodesWithCallable(
+            (array) $classMethod->stmts,
+            function (Node $node) use ($paramName, &$paramStaticType): ?int {
+                if (! $node instanceof Variable) {
+                    return null;
+                }
+
+                if (! $this->nodeNameResolver->isName($node, $paramName)) {
+                    return null;
+                }
+
+                $paramStaticType = $this->nodeTypeResolver->resolve($node);
+
+                return NodeTraverser::STOP_TRAVERSAL;
+            }
+        );
 
         return $paramStaticType;
     }
