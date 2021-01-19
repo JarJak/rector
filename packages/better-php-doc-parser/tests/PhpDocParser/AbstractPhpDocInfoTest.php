@@ -40,12 +40,6 @@ abstract class AbstractPhpDocInfoTest extends AbstractKernelTestCase
      */
     private $phpDocInfoFactory;
 
-    public function __construct(\Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory $phpDocInfoFactory)
-    {
-        $this->phpDocInfoFactory = $phpDocInfoFactory;
-        parent::__construct();
-    }
-
     protected function setUp(): void
     {
         $this->bootKernel(RectorKernel::class);
@@ -129,9 +123,7 @@ abstract class AbstractPhpDocInfoTest extends AbstractKernelTestCase
 
     private function doTestContainsTagValueNodeType(Node $node, string $tagValueNodeType, SmartFileInfo $fileInfo): void
     {
-        /** @var PhpDocInfo $phpDocInfo */
         $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($node);
-
         $this->assertTrue($phpDocInfo->hasByType($tagValueNodeType), $fileInfo->getRelativeFilePathFromCwd());
     }
 }
