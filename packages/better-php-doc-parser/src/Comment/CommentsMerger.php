@@ -18,7 +18,7 @@ final class CommentsMerger
     private $simpleCallableNodeTraverser;
 
     /**
-     * @var \Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory
+     * @var PhpDocInfoFactory
      */
     private $phpDocInfoFactory;
 
