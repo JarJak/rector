@@ -27,7 +27,7 @@ final class VarAnnotationManipulator
      */
     private $phpDocTypeChanger;
 
-    public function __construct(PhpDocTypeChanger $phpDocTypeChanger)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, PhpDocTypeChanger $phpDocTypeChanger)
     {
         $this->phpDocInfoFactory = $phpDocInfoFactory;
         $this->phpDocTypeChanger = $phpDocTypeChanger;

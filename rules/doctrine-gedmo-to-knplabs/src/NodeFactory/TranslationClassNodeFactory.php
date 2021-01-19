@@ -22,7 +22,7 @@ final class TranslationClassNodeFactory
      */
     private $classInsertManipulator;
 
-    public function __construct(ClassInsertManipulator $classInsertManipulator)
+    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, ClassInsertManipulator $classInsertManipulator)
     {
         $this->phpDocInfoFactory = $phpDocInfoFactory;
         $this->classInsertManipulator = $classInsertManipulator;
