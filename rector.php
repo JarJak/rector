@@ -14,11 +14,26 @@ use Rector\Restoration\Rector\ClassMethod\InferParamFromClassMethodReturnRector;
 use Rector\Restoration\ValueObject\InferParamFromClassMethodReturn;
 use Rector\Set\ValueObject\SetList;
 use Rector\SymfonyPhpConfig\Rector\MethodCall\AutoInPhpSymfonyConfigRector;
+use Rector\Transform\Rector\MethodCall\VariableMethodCallToServiceCallRector;
+use Rector\Transform\ValueObject\VariableMethodCallToServiceCall;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symplify\SymfonyPhpConfig\ValueObjectInliner;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $services = $containerConfigurator->services();
+
+    $services->set(VariableMethodCallToServiceCallRector::class)
+        ->call('configure', [[
+            VariableMethodCallToServiceCallRector::VARIABLE_METHOD_CALLS_TO_SERVICE_CALLS => ValueObjectInliner::inline([
+                new VariableMethodCallToServiceCall(
+                    'PhpParser\Node',
+                    'getAttribute',
+                    'php_doc_info',
+                    'Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory',
+                    'createFromNodeOrEmpty'
+                ),
+            ]),
+        ]]);
 
     $configuration = ValueObjectInliner::inline([
         new InferParamFromClassMethodReturn(AbstractRector::class, 'refactor', 'getNodeTypes'),
@@ -38,7 +53,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->set(AutoInPhpSymfonyConfigRector::class);
 
     $parameters = $containerConfigurator->parameters();
-
     $parameters->set(Option::SETS, [
         SetList::CODING_STYLE,
         SetList::CODE_QUALITY,

@@ -13,6 +13,7 @@ use PHPStan\Type\Type;
 use Rector\BetterPhpDocParser\Annotation\StaticAnnotationNaming;
 use Rector\BetterPhpDocParser\Contract\Doctrine\DoctrineRelationTagValueNodeInterface;
 use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfo;
+use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory;
 use Rector\BetterPhpDocParser\Printer\PhpDocInfoPrinter;
 use Rector\NodeTypeResolver\Node\AttributeKey;
 use Rector\Renaming\ValueObject\RenameAnnotation;
@@ -47,10 +48,19 @@ final class DocBlockManipulator
      */
     private $docBlockClassRenamer;
 
-    public function __construct(DocBlockClassRenamer $docBlockClassRenamer, PhpDocInfoPrinter $phpDocInfoPrinter)
-    {
+    /**
+     * @var PhpDocInfoFactory
+     */
+    private $phpDocInfoFactory;
+
+    public function __construct(
+        DocBlockClassRenamer $docBlockClassRenamer,
+        PhpDocInfoPrinter $phpDocInfoPrinter,
+        PhpDocInfoFactory $phpDocInfoFactory
+    ) {
         $this->phpDocInfoPrinter = $phpDocInfoPrinter;
         $this->docBlockClassRenamer = $docBlockClassRenamer;
+        $this->phpDocInfoFactory = $phpDocInfoFactory;
     }
 
     public function changeType(PhpDocInfo $phpDocInfo, Node $node, Type $oldType, Type $newType): void
@@ -60,8 +70,7 @@ final class DocBlockManipulator
 
     public function replaceAnnotationInNode(Node $node, RenameAnnotation $renameAnnotation): void
     {
-        /** @var PhpDocInfo $phpDocInfo */
-        $phpDocInfo = $node->getAttribute(AttributeKey::PHP_DOC_INFO);
+        $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($node);
 
         $this->replaceTagByAnother(
             $phpDocInfo->getPhpDocNode(),
@@ -88,12 +97,7 @@ final class DocBlockManipulator
 
     public function updateNodeWithPhpDocInfo(Node $node): void
     {
-        // nothing to change
-        $phpDocInfo = $node->getAttribute(AttributeKey::PHP_DOC_INFO);
-        if (! $phpDocInfo instanceof PhpDocInfo) {
-            return;
-        }
-
+        $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($node);
         $phpDoc = $this->printPhpDocInfoToString($phpDocInfo);
 
         // make sure, that many separated comments are not removed
@@ -124,8 +128,7 @@ final class DocBlockManipulator
 
     public function getDoctrineFqnTargetEntity(Node $node): ?string
     {
-        /** @var PhpDocInfo $phpDocInfo */
-        $phpDocInfo = $node->getAttribute(AttributeKey::PHP_DOC_INFO);
+        $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($node);
 
         $doctrineRelationTagValueNode = $phpDocInfo->getByType(DoctrineRelationTagValueNodeInterface::class);
         if ($doctrineRelationTagValueNode === null) {
