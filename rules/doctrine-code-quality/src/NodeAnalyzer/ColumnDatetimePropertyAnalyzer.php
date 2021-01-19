@@ -11,7 +11,7 @@ use Rector\BetterPhpDocParser\ValueObject\PhpDocNode\Doctrine\Property_\ColumnTa
 final class ColumnDatetimePropertyAnalyzer
 {
     /**
-     * @var \Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory
+     * @var PhpDocInfoFactory
      */
     private $phpDocInfoFactory;
 

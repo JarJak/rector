@@ -49,7 +49,7 @@ final class ShortNameResolver
     private $currentFileInfoProvider;
 
     /**
-     * @var \Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory
+     * @var PhpDocInfoFactory
      */
     private $phpDocInfoFactory;
 

@@ -44,7 +44,7 @@ final class EntityWithMissingUuidProvider
     private $nodeNameResolver;
 
     /**
-     * @var \Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory
+     * @var PhpDocInfoFactory
      */
     private $phpDocInfoFactory;
 

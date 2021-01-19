@@ -58,7 +58,7 @@ final class UniqueObjectFactoryFactory
     private $phpDocTypeChanger;
 
     /**
-     * @var \Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory
+     * @var PhpDocInfoFactory
      */
     private $phpDocInfoFactory;
 

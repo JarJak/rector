@@ -34,7 +34,7 @@ final class PropertyTypeDecorator
     private $phpDocTypeChanger;
 
     /**
-     * @var \Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory
+     * @var PhpDocInfoFactory
      */
     private $phpDocInfoFactory;
 

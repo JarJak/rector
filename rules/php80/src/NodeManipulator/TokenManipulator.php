@@ -59,11 +59,6 @@ final class TokenManipulator
      */
     private $nodesToRemoveCollector;
 
-    /**
-     * @var Expr|null
-     */
-    private $assignedNameExpr;
-
     public function __construct(
         BetterStandardPrinter $betterStandardPrinter,
         SimpleCallableNodeTraverser $simpleCallableNodeTraverser,
@@ -221,7 +216,6 @@ final class TokenManipulator
             // save token variable name for later
             $parentNode = $node->getAttribute(AttributeKey::PARENT_NODE);
             if ($parentNode instanceof Assign) {
-                $this->assignedNameExpr = $parentNode->var;
             }
 
             return new MethodCall($singleTokenExpr, 'getTokenName');

@@ -14,7 +14,7 @@ use Rector\NodeTypeResolver\Node\AttributeKey;
 final class VarTagValueNodeRenamer
 {
     /**
-     * @var \Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory
+     * @var PhpDocInfoFactory
      */
     private $phpDocInfoFactory;
 
@@ -45,7 +45,7 @@ final class VarTagValueNodeRenamer
     /**
      * Expression doc block has higher priority
      */
-    private function resolvePhpDocInfo(Node $node): ?PhpDocInfo
+    private function resolvePhpDocInfo(Node $node): PhpDocInfo
     {
         $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($node);
 

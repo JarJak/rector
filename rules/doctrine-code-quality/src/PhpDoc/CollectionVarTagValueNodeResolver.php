@@ -18,7 +18,7 @@ final class CollectionVarTagValueNodeResolver
     private $doctrinePropertyAnalyzer;
 
     /**
-     * @var \Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory
+     * @var PhpDocInfoFactory
      */
     private $phpDocInfoFactory;
 

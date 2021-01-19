@@ -19,7 +19,7 @@ final class PropertyTypeManipulator
     private $docBlockClassRenamer;
 
     /**
-     * @var \Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory
+     * @var PhpDocInfoFactory
      */
     private $phpDocInfoFactory;
 

@@ -15,7 +15,7 @@ use Rector\BetterPhpDocParser\ValueObject\PhpDocNode\Doctrine\Property_\OneToMan
 final class DoctrinePropertyAnalyzer
 {
     /**
-     * @var \Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory
+     * @var PhpDocInfoFactory
      */
     private $phpDocInfoFactory;
 

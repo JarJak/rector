@@ -149,6 +149,6 @@ final class DoctrineDocBlockResolver
     {
         $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($property);
 
-        return $phpDocInfo ? $phpDocInfo->hasByType(IdTagValueNode::class) : false;
+        return $phpDocInfo && $phpDocInfo->hasByType(IdTagValueNode::class);
     }
 }

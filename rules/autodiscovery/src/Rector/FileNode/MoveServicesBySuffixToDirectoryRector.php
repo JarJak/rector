@@ -116,6 +116,16 @@ CODE_SAMPLE
      *
      * @param string[] $groupNamesBySuffix
      */
+
+    /**
+     * A. Match classes by suffix and move them to group namespace
+     *
+     * E.g. "App\Controller\SomeException"
+     * ↓
+     * "App\Exception\SomeException"
+     *
+     * @param string[] $groupNamesBySuffix
+     */
     private function processGroupNamesBySuffix(
         SmartFileInfo $smartFileInfo,
         FileNode $fileNode,

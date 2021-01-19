@@ -17,7 +17,7 @@ final class ParamTagRemover
     private $deadParamTagValueNodeAnalyzer;
 
     /**
-     * @var \Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory
+     * @var PhpDocInfoFactory
      */
     private $phpDocInfoFactory;
 

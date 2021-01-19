@@ -25,7 +25,7 @@ final class EntityIdNodeFactory
     private $nodeFactory;
 
     /**
-     * @var \Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory
+     * @var PhpDocInfoFactory
      */
     private $phpDocInfoFactory;
 

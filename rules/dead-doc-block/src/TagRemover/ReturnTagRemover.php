@@ -18,7 +18,7 @@ final class ReturnTagRemover
     private $deadReturnTagValueNodeAnalyzer;
 
     /**
-     * @var \Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory
+     * @var PhpDocInfoFactory
      */
     private $phpDocInfoFactory;
 

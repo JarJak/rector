@@ -24,7 +24,7 @@ final class ExplicitRouteAnnotationDecorator
     private $useNodesToAddCollector;
 
     /**
-     * @var \Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory
+     * @var PhpDocInfoFactory
      */
     private $phpDocInfoFactory;
 
