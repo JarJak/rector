@@ -14,7 +14,7 @@ use Rector\BetterPhpDocParser\ValueObject\PhpDocNode\Symfony\Validator\Constrain
 final class PhpDocClassRenamer
 {
     /**
-     * @var \Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory
+     * @var PhpDocInfoFactory
      */
     private $phpDocInfoFactory;
 

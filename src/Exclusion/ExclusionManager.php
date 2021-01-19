@@ -24,7 +24,7 @@ use Rector\NodeTypeResolver\Node\AttributeKey;
 final class ExclusionManager
 {
     /**
-     * @var \Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory
+     * @var PhpDocInfoFactory
      */
     private $phpDocInfoFactory;
 
