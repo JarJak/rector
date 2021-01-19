@@ -25,7 +25,7 @@ final class UpdateFileNameByClassNameFileSystemRector extends AbstractRector
      */
     private $classNaming;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, ClassNaming $classNaming)
+    public function __construct(ClassNaming $classNaming)
     {
         $this->classNaming = $classNaming;
     }

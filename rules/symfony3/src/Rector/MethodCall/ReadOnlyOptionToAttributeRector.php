@@ -22,7 +22,7 @@ final class ReadOnlyOptionToAttributeRector extends AbstractFormAddRector
      */
     private $arrayManipulator;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, ArrayManipulator $arrayManipulator)
+    public function __construct(ArrayManipulator $arrayManipulator)
     {
         $this->arrayManipulator = $arrayManipulator;
     }

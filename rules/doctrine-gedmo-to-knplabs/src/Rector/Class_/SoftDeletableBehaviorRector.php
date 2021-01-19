@@ -26,7 +26,7 @@ final class SoftDeletableBehaviorRector extends AbstractRector
      */
     private $classInsertManipulator;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, ClassInsertManipulator $classInsertManipulator)
+    public function __construct(ClassInsertManipulator $classInsertManipulator)
     {
         $this->classInsertManipulator = $classInsertManipulator;
     }

@@ -42,7 +42,7 @@ final class AddParamTypeDeclarationRector extends AbstractRector implements Conf
      */
     private $typeComparator;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, TypeComparator $typeComparator)
+    public function __construct(TypeComparator $typeComparator)
     {
         $this->typeComparator = $typeComparator;
     }

@@ -32,7 +32,7 @@ final class TokenGetAllToObjectRector extends AbstractRector
      */
     private $tokenManipulator;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, TokenManipulator $ifArrayTokenManipulator)
+    public function __construct(TokenManipulator $ifArrayTokenManipulator)
     {
         $this->tokenManipulator = $ifArrayTokenManipulator;
     }

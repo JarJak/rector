@@ -24,7 +24,7 @@ final class AddClosureReturnTypeRector extends AbstractRector
      */
     private $returnTypeInferer;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, ReturnTypeInferer $returnTypeInferer)
+    public function __construct(ReturnTypeInferer $returnTypeInferer)
     {
         $this->returnTypeInferer = $returnTypeInferer;
     }

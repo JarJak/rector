@@ -29,7 +29,7 @@ final class SimplifyUselessVariableRector extends AbstractRector
      */
     private $assignAndBinaryMap;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, AssignAndBinaryMap $assignAndBinaryMap)
+    public function __construct(AssignAndBinaryMap $assignAndBinaryMap)
     {
         $this->assignAndBinaryMap = $assignAndBinaryMap;
     }

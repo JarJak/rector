@@ -33,7 +33,7 @@ final class StringToArrayArgumentProcessRector extends AbstractRector
      */
     private $nodeTransformer;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, NodeTransformer $nodeTransformer)
+    public function __construct(NodeTransformer $nodeTransformer)
     {
         $this->nodeTransformer = $nodeTransformer;
     }

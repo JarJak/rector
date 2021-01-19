@@ -26,7 +26,7 @@ final class GetParameterToConstructorInjectionRector extends AbstractRector
      */
     private $propertyNaming;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, PropertyNaming $propertyNaming)
+    public function __construct(PropertyNaming $propertyNaming)
     {
         $this->propertyNaming = $propertyNaming;
     }

@@ -30,7 +30,7 @@ final class RemoveExtraParametersRector extends AbstractRector
      */
     private $callReflectionResolver;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, CallReflectionResolver $callReflectionResolver)
+    public function __construct(CallReflectionResolver $callReflectionResolver)
     {
         $this->callReflectionResolver = $callReflectionResolver;
     }

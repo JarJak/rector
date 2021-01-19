@@ -48,7 +48,7 @@ final class EregToPregMatchRector extends AbstractRector
      */
     private $eregToPcreTransformer;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, EregToPcreTransformer $eregToPcreTransformer)
+    public function __construct(EregToPcreTransformer $eregToPcreTransformer)
     {
         $this->eregToPcreTransformer = $eregToPcreTransformer;
     }

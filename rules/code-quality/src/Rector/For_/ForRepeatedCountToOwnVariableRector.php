@@ -25,7 +25,7 @@ final class ForRepeatedCountToOwnVariableRector extends AbstractRector
      */
     private $variableNaming;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, VariableNaming $variableNaming)
+    public function __construct(VariableNaming $variableNaming)
     {
         $this->variableNaming = $variableNaming;
     }

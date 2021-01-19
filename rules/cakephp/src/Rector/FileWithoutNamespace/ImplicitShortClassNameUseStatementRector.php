@@ -26,7 +26,7 @@ final class ImplicitShortClassNameUseStatementRector extends AbstractRector
      */
     private $implicitNameResolver;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, ImplicitNameResolver $implicitNameResolver)
+    public function __construct(ImplicitNameResolver $implicitNameResolver)
     {
         $this->implicitNameResolver = $implicitNameResolver;
     }

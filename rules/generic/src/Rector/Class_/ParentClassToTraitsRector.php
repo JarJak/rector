@@ -36,7 +36,7 @@ final class ParentClassToTraitsRector extends AbstractRector implements Configur
      */
     private $classInsertManipulator;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, ClassInsertManipulator $classInsertManipulator)
+    public function __construct(ClassInsertManipulator $classInsertManipulator)
     {
         $this->classInsertManipulator = $classInsertManipulator;
     }

@@ -36,7 +36,7 @@ final class ConsecutiveNullCompareReturnsToNullCoalesceQueueRector extends Abstr
      */
     private $ifManipulator;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, IfManipulator $ifManipulator)
+    public function __construct(IfManipulator $ifManipulator)
     {
         $this->ifManipulator = $ifManipulator;
     }

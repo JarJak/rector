@@ -25,7 +25,7 @@ final class RemoveUnusedClassConstantRector extends AbstractRector implements Ze
      */
     private $classConstManipulator;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, ClassConstManipulator $classConstManipulator)
+    public function __construct(ClassConstManipulator $classConstManipulator)
     {
         $this->classConstManipulator = $classConstManipulator;
     }

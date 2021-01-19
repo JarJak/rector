@@ -24,7 +24,7 @@ final class RemoveUnusedClassesRector extends AbstractRector implements ZeroCach
      */
     private $unusedClassResolver;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, UnusedClassResolver $unusedClassResolver)
+    public function __construct(UnusedClassResolver $unusedClassResolver)
     {
         $this->unusedClassResolver = $unusedClassResolver;
     }

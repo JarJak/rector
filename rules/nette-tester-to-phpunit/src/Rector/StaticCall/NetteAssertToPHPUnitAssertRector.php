@@ -21,7 +21,7 @@ final class NetteAssertToPHPUnitAssertRector extends AbstractRector
      */
     private $assertManipulator;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, AssertManipulator $assertManipulator)
+    public function __construct(AssertManipulator $assertManipulator)
     {
         $this->assertManipulator = $assertManipulator;
     }

@@ -27,7 +27,7 @@ final class MoveInjectToExistingConstructorRector extends AbstractRector
      */
     private $propertyUsageAnalyzer;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, PropertyUsageAnalyzer $propertyUsageAnalyzer)
+    public function __construct(PropertyUsageAnalyzer $propertyUsageAnalyzer)
     {
         $this->propertyUsageAnalyzer = $propertyUsageAnalyzer;
     }

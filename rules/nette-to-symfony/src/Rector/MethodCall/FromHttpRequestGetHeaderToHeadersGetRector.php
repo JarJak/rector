@@ -27,7 +27,7 @@ final class FromHttpRequestGetHeaderToHeadersGetRector extends AbstractRector
      */
     private $classMethodManipulator;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, ClassMethodManipulator $classMethodManipulator)
+    public function __construct(ClassMethodManipulator $classMethodManipulator)
     {
         $this->classMethodManipulator = $classMethodManipulator;
     }

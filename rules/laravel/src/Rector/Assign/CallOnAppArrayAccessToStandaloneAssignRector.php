@@ -30,7 +30,7 @@ final class CallOnAppArrayAccessToStandaloneAssignRector extends AbstractRector
      */
     private $appAssignFactory;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, AppAssignFactory $appAssignFactory)
+    public function __construct(AppAssignFactory $appAssignFactory)
     {
         $this->serviceNameTypeAndVariableNames[] = new ServiceNameTypeAndVariableName(
             'validator',

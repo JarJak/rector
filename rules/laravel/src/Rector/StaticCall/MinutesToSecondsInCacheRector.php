@@ -51,7 +51,7 @@ final class MinutesToSecondsInCacheRector extends AbstractRector
      */
     private $typeToTimeMethodsAndPositions = [];
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, ParsedNodeCollector $parsedNodeCollector)
+    public function __construct(ParsedNodeCollector $parsedNodeCollector)
     {
         $this->parsedNodeCollector = $parsedNodeCollector;
 

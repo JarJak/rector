@@ -40,7 +40,7 @@ final class MockistaMockToMockeryMockRector extends AbstractPHPUnitRector
      */
     private $mockVariableCollector;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, MockVariableCollector $mockVariableCollector)
+    public function __construct(MockVariableCollector $mockVariableCollector)
     {
         $this->mockVariableCollector = $mockVariableCollector;
     }

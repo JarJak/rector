@@ -23,7 +23,7 @@ final class DesiredPropertyClassMethodTypeToDynamicRector extends AbstractRector
      */
     private $classTypes = [];
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, ParameterProvider $parameterProvider)
+    public function __construct(ParameterProvider $parameterProvider)
     {
         $this->classTypes = $parameterProvider->provideArrayParameter(Option::TYPES_TO_REMOVE_STATIC_FROM);
     }

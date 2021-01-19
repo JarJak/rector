@@ -38,7 +38,7 @@ final class SimplifyForeachToCoalescingRector extends AbstractRector
      */
     private $return;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, ForeachManipulator $foreachManipulator)
+    public function __construct(ForeachManipulator $foreachManipulator)
     {
         $this->foreachManipulator = $foreachManipulator;
     }

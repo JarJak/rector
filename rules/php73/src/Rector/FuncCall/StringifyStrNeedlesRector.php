@@ -39,7 +39,7 @@ final class StringifyStrNeedlesRector extends AbstractRector
      */
     private $nodeTypeAnalyzer;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, NodeTypeAnalyzer $nodeTypeAnalyzer)
+    public function __construct(NodeTypeAnalyzer $nodeTypeAnalyzer)
     {
         $this->nodeTypeAnalyzer = $nodeTypeAnalyzer;
     }

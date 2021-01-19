@@ -25,7 +25,7 @@ final class SimplifyForeachInstanceOfRector extends AbstractRector
      */
     private $foreachManipulator;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, ForeachManipulator $foreachManipulator)
+    public function __construct(ForeachManipulator $foreachManipulator)
     {
         $this->foreachManipulator = $foreachManipulator;
     }

@@ -24,7 +24,7 @@ final class FormIsValidRector extends AbstractRector
      */
     private $methodCallManipulator;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, MethodCallManipulator $methodCallManipulator)
+    public function __construct(MethodCallManipulator $methodCallManipulator)
     {
         $this->methodCallManipulator = $methodCallManipulator;
     }

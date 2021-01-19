@@ -25,7 +25,7 @@ final class RemoveUnusedPrivatePropertyRector extends AbstractRector
      */
     private $propertyManipulator;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, PropertyManipulator $propertyManipulator)
+    public function __construct(PropertyManipulator $propertyManipulator)
     {
         $this->propertyManipulator = $propertyManipulator;
     }

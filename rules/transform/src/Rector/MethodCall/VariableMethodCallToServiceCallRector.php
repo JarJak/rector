@@ -39,7 +39,7 @@ final class VariableMethodCallToServiceCallRector extends AbstractRector impleme
      */
     private $propertyNaming;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, PropertyNaming $propertyNaming)
+    public function __construct(PropertyNaming $propertyNaming)
     {
         $this->propertyNaming = $propertyNaming;
     }

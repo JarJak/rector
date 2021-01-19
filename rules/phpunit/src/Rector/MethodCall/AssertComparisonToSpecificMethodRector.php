@@ -42,7 +42,7 @@ final class AssertComparisonToSpecificMethodRector extends AbstractPHPUnitRector
      */
     private $identifierManipulator;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, IdentifierManipulator $identifierManipulator)
+    public function __construct(IdentifierManipulator $identifierManipulator)
     {
         $this->identifierManipulator = $identifierManipulator;
 

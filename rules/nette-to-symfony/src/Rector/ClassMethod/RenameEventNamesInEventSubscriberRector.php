@@ -34,7 +34,7 @@ final class RenameEventNamesInEventSubscriberRector extends AbstractRector
      */
     private $symfonyClassConstWithAliases = [];
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, EventInfosFactory $eventInfosFactory)
+    public function __construct(EventInfosFactory $eventInfosFactory)
     {
         $this->symfonyClassConstWithAliases = $eventInfosFactory->create();
     }

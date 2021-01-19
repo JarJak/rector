@@ -24,7 +24,7 @@ final class SimplifyDeMorganBinaryRector extends AbstractRector
      */
     private $binaryOpManipulator;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, BinaryOpManipulator $binaryOpManipulator)
+    public function __construct(BinaryOpManipulator $binaryOpManipulator)
     {
         $this->binaryOpManipulator = $binaryOpManipulator;
     }

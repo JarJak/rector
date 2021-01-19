@@ -38,7 +38,7 @@ final class CreateFunctionToAnonymousFunctionRector extends AbstractConvertToAno
      */
     private $inlineCodeParser;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, InlineCodeParser $inlineCodeParser)
+    public function __construct(InlineCodeParser $inlineCodeParser)
     {
         $this->inlineCodeParser = $inlineCodeParser;
     }

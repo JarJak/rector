@@ -30,7 +30,7 @@ final class RemoveUselessJustForSakeInterfaceRector extends AbstractRector
      */
     private $renamedClassesCollector;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, RenamedClassesCollector $renamedClassesCollector)
+    public function __construct(RenamedClassesCollector $renamedClassesCollector)
     {
         $this->renamedClassesCollector = $renamedClassesCollector;
     }

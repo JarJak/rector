@@ -28,7 +28,7 @@ final class WhileEachToForeachRector extends AbstractRector
      */
     private $assignManipulator;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, AssignManipulator $assignManipulator)
+    public function __construct(AssignManipulator $assignManipulator)
     {
         $this->assignManipulator = $assignManipulator;
     }

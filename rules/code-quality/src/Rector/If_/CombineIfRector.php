@@ -22,7 +22,7 @@ final class CombineIfRector extends AbstractRector
      */
     private $commentsMerger;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, CommentsMerger $commentsMerger)
+    public function __construct(CommentsMerger $commentsMerger)
     {
         $this->commentsMerger = $commentsMerger;
     }

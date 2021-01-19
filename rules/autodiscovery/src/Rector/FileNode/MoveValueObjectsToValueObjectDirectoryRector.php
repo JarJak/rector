@@ -68,7 +68,7 @@ final class MoveValueObjectsToValueObjectDirectoryRector extends AbstractRector 
      */
     private $classAnalyzer;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, ClassAnalyzer $classAnalyzer)
+    public function __construct(ClassAnalyzer $classAnalyzer)
     {
         $this->classAnalyzer = $classAnalyzer;
     }

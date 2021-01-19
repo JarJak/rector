@@ -30,7 +30,7 @@ final class StringableForToStringRector extends AbstractRector
      */
     private $classManipulator;
 
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory, ClassManipulator $classManipulator)
+    public function __construct(ClassManipulator $classManipulator)
     {
         $this->classManipulator = $classManipulator;
     }
