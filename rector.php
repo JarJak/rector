@@ -24,20 +24,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services = $containerConfigurator->services();
 
     $configuration = ValueObjectInliner::inline([
-        new VariableMethodCallToServiceCall(
-            'PhpParser\Node',
-            'getAttribute',
-            AttributeKey::PHP_DOC_INFO,
-            'Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory',
-            'createFromNodeOrEmpty'
-        ),
-    ]);
-    $services->set(VariableMethodCallToServiceCallRector::class)
-        ->call('configure', [[
-            VariableMethodCallToServiceCallRector::VARIABLE_METHOD_CALLS_TO_SERVICE_CALLS => $configuration,
-        ]]);
-
-    $configuration = ValueObjectInliner::inline([
         new InferParamFromClassMethodReturn(AbstractRector::class, 'refactor', 'getNodeTypes'),
     ]);
     $services->set(InferParamFromClassMethodReturnRector::class)

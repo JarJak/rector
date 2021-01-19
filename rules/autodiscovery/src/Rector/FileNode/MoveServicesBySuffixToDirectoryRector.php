@@ -41,7 +41,6 @@ final class MoveServicesBySuffixToDirectoryRector extends AbstractRector impleme
     private $expectedFileLocationResolver;
 
     public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
         ExpectedFileLocationResolver $expectedFileLocationResolver
     ) {
         $this->expectedFileLocationResolver = $expectedFileLocationResolver;

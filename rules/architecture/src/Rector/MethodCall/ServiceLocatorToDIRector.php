@@ -13,6 +13,7 @@ use PhpParser\Node\Name;
 use PhpParser\Node\Scalar\String_;
 use PhpParser\Node\Stmt\Class_;
 use PHPStan\Type\ObjectType;
+use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory;
 use Rector\Core\Exception\Bridge\RectorProviderException;
 use Rector\Core\Exception\ShouldNotHappenException;
 use Rector\Core\Rector\AbstractRector;
@@ -38,7 +39,6 @@ final class ServiceLocatorToDIRector extends AbstractRector
     private $propertyNaming;
 
     public function __construct(
-        PhpDocInfoFactory $phpDocInfoFactory,
         DoctrineEntityAndRepositoryMapperInterface $doctrineEntityAndRepositoryMapper,
         PropertyNaming $propertyNaming
     ) {

@@ -27,16 +27,6 @@ final class NameScopeFactory
      */
     private $staticTypeMapper;
 
-    /**
-     * @var \Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory
-     */
-    private $phpDocInfoFactory;
-
-    public function __construct(PhpDocInfoFactory $phpDocInfoFactory)
-    {
-        $this->phpDocInfoFactory = $phpDocInfoFactory;
-    }
-
     public function createNameScopeFromNodeWithoutTemplateTypes(Node $node): NameScope
     {
         $namespace = $node->getAttribute(AttributeKey::NAMESPACE_NAME);
@@ -117,7 +107,7 @@ final class NameScopeFactory
      */
     private function resolveTemplateTypesFromNode(Node $node): array
     {
-        $phpDocInfo = $this->phpDocInfoFactory->createFromNodeOrEmpty($node);
+        $phpDocInfo = $node->getAttribute(AttributeKey::PHP_DOC_INFO);
         if (! $phpDocInfo instanceof PhpDocInfo) {
             return [];
         }
