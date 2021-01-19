@@ -6,7 +6,6 @@ namespace Rector\BetterPhpDocParser\Tests\PhpDocParser;
 
 use Iterator;
 use PhpParser\Node;
-use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfo;
 use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory;
 use Rector\BetterPhpDocParser\Printer\PhpDocInfoPrinter;
 use Rector\BetterPhpDocParser\Tests\PhpDocParser\Helper\TagValueToPhpParserNodeMap;

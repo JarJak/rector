@@ -40,9 +40,8 @@ final class MoveServicesBySuffixToDirectoryRector extends AbstractRector impleme
      */
     private $expectedFileLocationResolver;
 
-    public function __construct(
-        ExpectedFileLocationResolver $expectedFileLocationResolver
-    ) {
+    public function __construct(ExpectedFileLocationResolver $expectedFileLocationResolver)
+    {
         $this->expectedFileLocationResolver = $expectedFileLocationResolver;
     }
 

@@ -13,7 +13,6 @@ use PhpParser\Node\Expr\Variable;
 use PhpParser\Node\Identifier;
 use PhpParser\Node\Name\FullyQualified;
 use PhpParser\Node\Stmt\Expression;
-use Rector\BetterPhpDocParser\PhpDocInfo\PhpDocInfoFactory;
 use Rector\Core\Rector\AbstractRector;
 use Rector\RectorGenerator\Contract\InternalRectorInterface;
 use Rector\SymfonyPhpConfig\NodeAnalyzer\SymfonyPhpConfigClosureAnalyzer;
@@ -32,9 +31,8 @@ final class AddNewServiceToSymfonyPhpConfigRector extends AbstractRector impleme
      */
     private $rectorClass;
 
-    public function __construct(
-        SymfonyPhpConfigClosureAnalyzer $symfonyPhpConfigClosureAnalyzer
-    ) {
+    public function __construct(SymfonyPhpConfigClosureAnalyzer $symfonyPhpConfigClosureAnalyzer)
+    {
         $this->symfonyPhpConfigClosureAnalyzer = $symfonyPhpConfigClosureAnalyzer;
     }
 
